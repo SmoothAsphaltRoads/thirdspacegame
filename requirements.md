@@ -5,6 +5,7 @@ This is essentially a way to keep track of who is doing what, and what needs to 
 - basic player movement
 - collisions
 - a singular level
+- basic main menu (design)
 
 # To do
 - Art ( save this one for later maybe)
