@@ -5,7 +5,7 @@ This is essentially a way to keep track of who is doing what, and what needs to 
 - basic player movement
 - collisions
 - a singular level
-- basic main menu (design)
+- main menu (bg music and bg image to be chosen)
 
 # To do
 - Art ( save this one for later maybe)
