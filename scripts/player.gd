@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		JUMP_BUFFER_TIMER -= delta
 	
-	print(JUMP_BUFFER_TIMER)
 	if JUMP_BUFFER_TIMER > 0.0 and COYOTE_TIMER > 0.0:
 		velocity.y = JUMP_HEIGHT
 		COYOTE_TIMER = 0.0
