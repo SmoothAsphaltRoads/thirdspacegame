@@ -2,6 +2,10 @@
 
 [ext_resource type="FontFile" uid="uid://d1xv1mwcsixam" path="res://assets/Anak Gedong.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://ct0tp8wvu1uqa" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://c0pngvlfjf604" path="res://assets/sounds/lofistartpage.mp3" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://i1kd2d8chp7o" path="res://scenes/audio_control.gd" id="4_wu84c"]
+[ext_resource type="Script" uid="uid://cg7ac4fq6kya8" path="res://scenes/fullscreen_control.gd" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://culj1aetisa4h" path="res://scenes/scale_control.gd" id="6_rtw2f"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7vrkn"]
 load_path = "res://.godot/imported/Green.png-c8cb3fa3b8c1a08968c5f808f33c2317.ctex"
@@ -41,6 +45,14 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 8
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6gynv"]
+color = Color(1.1755697, 1.1755697, 1.1755697, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6lmbc"]
+color = Color(0.34618732, 0.54770494, 1, 1)
+thickness = 6
+
 [node name="MainMenu" type="Control" unique_id=1806181065]
 layout_mode = 3
 anchors_preset = 15
@@ -50,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
 
-[node name="Panel" type="Panel" parent="." unique_id=156523435]
+[node name="Background" type="Panel" parent="." unique_id=156523435]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6gynv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1814555814]
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=1814555814]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -74,7 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 24
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=639566903]
+[node name="Button" type="Button" parent="MainButtons" unique_id=639566903]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 0.96862745)
@@ -89,7 +101,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
 text = "Start Game"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1947759212]
+[node name="Button2" type="Button" parent="MainButtons" unique_id=1947759212]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 0.96862745)
@@ -103,7 +115,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
 text = "Options"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1471146049]
+[node name="Button3" type="Button" parent="MainButtons" unique_id=1471146049]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 0.96862745)
@@ -131,3 +143,135 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 80
 text = "Third Space"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2050145699]
+stream = ExtResource("3_bqqt6")
+autoplay = true
+bus = &"Music"
+
+[node name="Options" type="Panel" parent="." unique_id=742310115]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -163.0
+offset_right = 285.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options" unique_id=459564513]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 572.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 30
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="Options" unique_id=687182912]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = 88.5
+offset_right = 170.5
+offset_bottom = 171.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 0.96862745)
+theme_override_colors/font_focus_color = Color(0.011203093, 0.011203093, 0.011203093, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+text = "Back"
+
+[node name="AudioControl" type="HSlider" parent="Options" unique_id=2041850497]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 110.0
+offset_right = 493.0
+offset_bottom = 138.0
+theme_override_styles/slider = SubResource("StyleBoxLine_6gynv")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_6lmbc")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_wu84c")
+audio_bus_name = "Music"
+
+[node name="FullscreenControl" type="CheckButton" parent="Options" unique_id=1711283431]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 131.0
+offset_right = 481.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 33
+text = "Fullscreen
+"
+script = ExtResource("5_8ln24")
+
+[node name="ScaleControl" type="OptionButton" parent="Options" unique_id=361639804]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 201.0
+offset_right = 479.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 25
+selected = 4
+item_count = 8
+popup/item_0/text = "200%"
+popup/item_0/id = 7
+popup/item_1/text = "175%"
+popup/item_1/id = 6
+popup/item_2/text = "150%"
+popup/item_2/id = 5
+popup/item_3/text = "125%"
+popup/item_3/id = 4
+popup/item_4/text = "100%"
+popup/item_4/id = 0
+popup/item_5/text = "75%"
+popup/item_5/id = 1
+popup/item_6/text = "50%"
+popup/item_6/id = 2
+popup/item_7/text = "25%"
+popup/item_7/id = 3
+script = ExtResource("6_rtw2f")
+
+[node name="Label2" type="Label" parent="Options" unique_id=1403006362]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 202.0
+offset_right = 300.0
+offset_bottom = 255.0
+theme_override_font_sizes/font_size = 33
+text = "Resolution"
+
+[node name="Label3" type="Label" parent="Options" unique_id=396688216]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 59.0
+offset_right = 478.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 33
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Options/Button3" to="." method="_on_back_options_pressed"]
+[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]
+[connection signal="item_selected" from="Options/ScaleControl" to="Options/ScaleControl" method="_on_item_selected"]
