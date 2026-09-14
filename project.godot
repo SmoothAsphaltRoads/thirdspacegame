@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="thirdspace game"
-run/main_scene="uid://dr1iknrgwhxvp"
+run/main_scene="uid://bprqw6ienfujp"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,8 @@ buses/default_bus_layout="uid://cmf2thaqtwvda"
 
 [autoload]
 
-LevelManager="*uid://c7vx3qes62jr6"
 Transition="*uid://bx2x5ighyhjsw"
+LevelManager="*uid://c7vx3qes62jr6"
 
 [display]
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bprqw6ienfujp"]
 
 [ext_resource type="FontFile" uid="uid://d1xv1mwcsixam" path="res://assets/Anak Gedong.ttf" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://ct0tp8wvu1uqa" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7vrkn"]
 load_path = "res://.godot/imported/Green.png-c8cb3fa3b8c1a08968c5f808f33c2317.ctex"
@@ -47,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ekxnf")
 
 [node name="Panel" type="Panel" parent="." unique_id=156523435]
 layout_mode = 1

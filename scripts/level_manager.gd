@@ -5,6 +5,13 @@ extends Node
 	"res://scenes/levels/level_2.tscn",
 ]
 
+@export var menus: Array[String] = [
+	"res://scenes/main_menu.tscn"
+]
+
+func start_game() -> void:
+	change_scene(levels[0])
+
 var current_level := 0
 func go_to_next_level() -> void:
 	current_level = (current_level+1) % levels.size()
@@ -21,7 +28,8 @@ func change_scene(path: String) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# start_game() # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
