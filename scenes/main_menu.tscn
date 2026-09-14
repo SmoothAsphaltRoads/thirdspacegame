@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://bprqw6ienfujp"]
+
+[ext_resource type="FontFile" uid="uid://d1xv1mwcsixam" path="res://assets/Anak Gedong.ttf" id="1_06t4h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7vrkn"]
+load_path = "res://.godot/imported/Green.png-c8cb3fa3b8c1a08968c5f808f33c2317.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gynv"]
+texture = SubResource("CompressedTexture2D_7vrkn")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(12.271833, 11.84926, 8.327809, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(12.271833, 11.84926, 8.327809, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(18.892157, 11.637973, 6.3557987, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(18.892157, 8.186952, 1.4035361, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 8
+
+[node name="MainMenu" type="Control" unique_id=1806181065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=156523435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6gynv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1814555814]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.75
+offset_top = -119.5
+offset_right = 200.75
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=639566903]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 0.96862745)
+theme_override_colors/font_focus_color = Color(0.011203093, 0.011203093, 0.011203093, 1)
+theme_override_colors/font_pressed_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_colors/font_hover_color = Color(0.011203093, 0.011203093, 0.011203093, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1947759212]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 0.96862745)
+theme_override_colors/font_focus_color = Color(0.011203093, 0.011203093, 0.011203093, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+text = "Options"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1471146049]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 0.96862745)
+theme_override_colors/font_focus_color = Color(0.011203093, 0.011203093, 0.011203093, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+text = "Exit"
+
+[node name="Label" type="Label" parent="." unique_id=1465451366]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.076000005
+offset_left = -258.5
+offset_top = 88.0
+offset_right = 276.0
+offset_bottom = 173.28
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 80
+text = "Third Space"
