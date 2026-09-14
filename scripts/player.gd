@@ -3,20 +3,40 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $"Jump sound"
 
-const BASE_SPEED := 100.0
-const MAX_SPEED := 400.0
+const BASE_SPEED := 50.0
+const MAX_SPEED := 300.0
 const ACCELERATION := 600.0
-const FRICTION := 1200.0
-const JUMP_VELOCITY := -850.0
-
+const FRICTION := 1400.0
+const JUMP_HEIGHT := -850.0
+const CUT_MULTIPLIER:= 1.0
+const MIN_JUMP_HEIGHT:= -300.0
+const COYOTE_TIME:= 0.15
+var COYOTE_TIMER:= 0.0
+const JUMP_BUFFER_TIME:= 0.15
+var JUMP_BUFFER_TIMER:= 0.0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		COYOTE_TIMER -= delta
+	else:
+		COYOTE_TIMER = COYOTE_TIME
+		
+	if Input.is_action_just_pressed("jump"):
+		JUMP_BUFFER_TIMER  = JUMP_BUFFER_TIME
+	else:
+		JUMP_BUFFER_TIMER -= delta
+	
+	print(JUMP_BUFFER_TIMER)
+	if JUMP_BUFFER_TIMER > 0.0 and COYOTE_TIMER > 0.0:
+		velocity.y = JUMP_HEIGHT
+		COYOTE_TIMER = 0.0
+		JUMP_BUFFER_TIMER = 0.0
 		jump_sound.play()
+	
+	if Input.is_action_just_released("jump") and velocity.y < 0:
+		velocity.y = max(velocity.y * CUT_MULTIPLIER, MIN_JUMP_HEIGHT)
+	
 
 	var direction := Input.get_axis("left", "right")
 
