@@ -14,6 +14,7 @@ const COYOTE_TIME:= 0.15
 var COYOTE_TIMER:= 0.0
 const JUMP_BUFFER_TIME:= 0.15
 var JUMP_BUFFER_TIMER:= 0.0
+var TIME:= 0.0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -26,7 +27,12 @@ func _physics_process(delta: float) -> void:
 		JUMP_BUFFER_TIMER  = JUMP_BUFFER_TIME
 	else:
 		JUMP_BUFFER_TIMER -= delta
-	
+
+	if Input.is_action_just_pressed("restart"):
+		LevelManager.restart_level()
+	if Input.is_action_just_pressed("next"):
+		LevelManager.go_to_next_level()
+
 	if JUMP_BUFFER_TIMER > 0.0 and COYOTE_TIMER > 0.0:
 		velocity.y = JUMP_HEIGHT
 		COYOTE_TIMER = 0.0
