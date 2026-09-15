@@ -13,7 +13,6 @@ func _ready() -> void:
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
 
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -38,6 +37,10 @@ func _on_body_exited(body: Node2D) -> void:
 		target = null
 
 func _update_animation(direction: float) -> void:
-	animated_sprite_2d.animation = "Idle_2"
+	if !target:
+		animated_sprite_2d.animation = "Idle_2"
+	else:
+		animated_sprite_2d.animation = "Idle_1"
+	
 	if direction != 0.0:
 		animated_sprite_2d.flip_h = direction > 0.
