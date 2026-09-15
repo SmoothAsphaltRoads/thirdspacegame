@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dfdt2g58y0pbf" path="res://assets/tilemap/Terrain (16x16).png" id="1_ksju7"]
 [ext_resource type="Texture2D" uid="uid://c2q78djs51c7i" path="res://assets/background/Green.png" id="1_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://dpvyyggergrjk" path="res://scenes/player.tscn" id="2_6iamk"]
-[ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="4_x42e6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -197,6 +196,3 @@ tile_set = SubResource("TileSet_y6eo5")
 
 [node name="Player" parent="." unique_id=191484152 instance=ExtResource("2_6iamk")]
 position = Vector2(106, 193)
-
-[node name="CharacterBody2D" parent="." unique_id=389120182 instance=ExtResource("4_x42e6")]
-position = Vector2(581, 343)

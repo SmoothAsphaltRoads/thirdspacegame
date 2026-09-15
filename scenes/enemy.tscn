@@ -255,12 +255,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
-size = Vector2(31, 21.333336)
+size = Vector2(42, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6eo5"]
 size = Vector2(498.6667, 222.33334)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=389120182]
+[node name="Enemy" type="CharacterBody2D" unique_id=389120182 groups=["enemies"]]
 texture_filter = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_7p1mj")
@@ -269,10 +269,10 @@ script = ExtResource("1_7p1mj")
 sprite_frames = SubResource("SpriteFrames_md0e3")
 animation = &"Idle_1"
 autoplay = "Idle_2"
-frame_progress = 0.09740005
+frame_progress = 0.91651976
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662991843]
-position = Vector2(0.16667175, 2.333332)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=837507637]
