@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xp0sxko7mjtl" path="res://assets/player/Run (32x32).png" id="4_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://dtwyq08ocea3x" path="res://assets/sounds/jump.wav" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://byvd342jr2ryf" path="res://assets/sounds/death.wav" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://ddios53r3krwa" path="res://assets/sounds/collect_apple.wav" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("1_3vyb7")
@@ -269,6 +270,9 @@ stream = ExtResource("6_tuyoq")
 
 [node name="Death sound" type="AudioStreamPlayer2D" parent="." unique_id=1457581840]
 stream = ExtResource("7_fjrip")
+
+[node name="Goal reach sound" type="AudioStreamPlayer2D" parent="." unique_id=1435529663]
+stream = ExtResource("8_smehm")
 
 [node name="GoalDetector" type="Area2D" parent="." unique_id=816400694]
 

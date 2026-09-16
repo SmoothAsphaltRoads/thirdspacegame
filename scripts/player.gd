@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $"Jump sound"
 @onready var death_sound: AudioStreamPlayer2D = $"Death sound"
+@onready var goal_reach_sound: AudioStreamPlayer2D = $"Goal reach sound"
 @onready var goal_detector: Area2D = $GoalDetector
 
 const BASE_SPEED := 50.0
@@ -16,6 +17,7 @@ const COYOTE_TIME := 0.15
 var COYOTE_TIMER := 0.0
 const JUMP_BUFFER_TIME := 0.15
 var JUMP_BUFFER_TIMER := 0.0
+var BOOST_HEIGHT:= -1000
 
 var is_dead := false
 
@@ -61,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	_update_animation(direction)
 	move_and_slide()
 	_check_enemy_collision()
-	_check_goal_collision()
+	_check_object_collision()
 
 
 func _check_enemy_collision() -> void:
@@ -71,14 +73,21 @@ func _check_enemy_collision() -> void:
 		if collider.is_in_group("enemies"):
 			die()
 			return
-		
-func _check_goal_collision() -> void:
+
+func _check_object_collision() -> void:
 	var overlapping = goal_detector.get_overlapping_areas()
 	for area in overlapping:
 		if area.is_in_group("endGoal"):
+			goal_reach_sound.play()
 			LevelManager.go_to_next_level()
 			return
-			
+		if area.is_in_group("trap"):
+			die()
+			return
+		if area.is_in_group("boost"):
+			velocity.y = BOOST_HEIGHT
+			return
+
 func die() -> void:
 	death_sound.play(0.3)
 	is_dead = true  

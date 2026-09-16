@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2q78djs51c7i" path="res://assets/background/Green.png" id="1_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://dpvyyggergrjk" path="res://scenes/player.tscn" id="2_6iamk"]
 [ext_resource type="PackedScene" uid="uid://danb2mi7ejawn" path="res://scenes/end_goal.tscn" id="4_x42e6"]
+[ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="5_6761a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -200,3 +201,6 @@ position = Vector2(788, 264)
 
 [node name="Player" parent="." unique_id=191484152 instance=ExtResource("2_6iamk")]
 position = Vector2(105, 315)
+
+[node name="Spike" parent="." unique_id=1027517052 instance=ExtResource("5_6761a")]
+position = Vector2(350, 359)

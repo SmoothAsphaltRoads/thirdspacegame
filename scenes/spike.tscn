@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dl40kt56yu4v"]
+
+[ext_resource type="Texture2D" uid="uid://dg3nf7fxnd7on" path="res://assets/traps/spike/Idle.png" id="1_ljd5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2x3"]
+size = Vector2(52, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a7y0"]
+atlas = ExtResource("1_ljd5v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y6eo5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a7y0")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 20.0
+}]
+
+[node name="Spike" type="Area2D" unique_id=1027517052 groups=["trap"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083470025 groups=["trap"]]
+position = Vector2(-1, 13.5)
+shape = SubResource("RectangleShape2D_0o2x3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1374351629]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_y6eo5")
+animation = &"Idle"
