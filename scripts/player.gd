@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $"Jump sound"
 @onready var death_sound: AudioStreamPlayer2D = $"Death sound"
+@onready var goal_detector: Area2D = $GoalDetector
 
 const BASE_SPEED := 50.0
 const MAX_SPEED := 300.0
@@ -60,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	_update_animation(direction)
 	move_and_slide()
 	_check_enemy_collision()
+	_check_goal_collision()
 
 
 func _check_enemy_collision() -> void:
@@ -69,16 +71,22 @@ func _check_enemy_collision() -> void:
 		if collider.is_in_group("enemies"):
 			die()
 			return
-
+		
+func _check_goal_collision() -> void:
+	var overlapping = goal_detector.get_overlapping_areas()
+	for area in overlapping:
+		if area.is_in_group("endGoal"):
+			LevelManager.go_to_next_level()
+			return
+			
 func die() -> void:
 	death_sound.play(0.3)
-	is_dead = true
+	is_dead = true  
 	velocity = Vector2.ZERO
 	animated_sprite_2d.animation = "Hit"
 	await animated_sprite_2d.animation_finished
 	LevelManager.restart_level()
 	is_dead = false 
-
 
 func _update_animation(direction: float) -> void:
 	if not is_on_floor():

@@ -3,11 +3,10 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $Area2D
 
-var SPEED := 100.0
+var SPEED := 200.0
 var ACCELERATION:= 200
 var FRICTION:= 600
 var target: Node2D = null
-
 
 func _ready() -> void:
 	detection_area.body_entered.connect(_on_body_entered)

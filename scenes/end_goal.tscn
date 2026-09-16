@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://danb2mi7ejawn"]
+
+[ext_resource type="Texture2D" uid="uid://cj6t28dcgoihr" path="res://assets/items/Bananas.png" id="1_ucdw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co5cm"]
+size = Vector2(20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hn7s"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfs2x"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvgvj"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohsxq"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i15yk"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43afv"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eis0l"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktpbj"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpc0j"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocjwk"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcmdv"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv4hg"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na6sl"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wq6f"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgd2u"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu588"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogl3n"]
+atlas = ExtResource("1_ucdw6")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0o2x3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hn7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfs2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvgvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohsxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i15yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43afv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eis0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktpbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpc0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocjwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcmdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv4hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na6sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wq6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgd2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu588")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogl3n")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 20.0
+}]
+
+[node name="endgoal" type="Area2D" unique_id=1795683256 groups=["endGoal"]]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=185369460]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_co5cm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=57141028]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0o2x3")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.24213724

@@ -245,7 +245,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2x3"]
-size = Vector2(21, 25)
+size = Vector2(21, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6eo5"]
+size = Vector2(21, 29.333334)
 
 [node name="Player" type="CharacterBody2D" unique_id=191484152 groups=["player"]]
 scale = Vector2(3, 3)
@@ -258,7 +261,7 @@ animation = &"Hit"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1129575988]
-position = Vector2(0.5, 3.5)
+position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_0o2x3")
 
 [node name="Jump sound" type="AudioStreamPlayer2D" parent="." unique_id=1899695979]
@@ -266,3 +269,9 @@ stream = ExtResource("6_tuyoq")
 
 [node name="Death sound" type="AudioStreamPlayer2D" parent="." unique_id=1457581840]
 stream = ExtResource("7_fjrip")
+
+[node name="GoalDetector" type="Area2D" parent="." unique_id=816400694]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector" unique_id=1949617933]
+position = Vector2(0.3333335, 1.333333)
+shape = SubResource("RectangleShape2D_y6eo5")
