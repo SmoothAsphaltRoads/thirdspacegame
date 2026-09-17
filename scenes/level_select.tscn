@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://8l60qrkpgmc5"]
+
+[ext_resource type="Script" uid="uid://bq74jed0wuww7" path="res://scripts/level_select.gd" id="1_2epne"]
+[ext_resource type="FontFile" uid="uid://d1xv1mwcsixam" path="res://fonts/Anak Gedong.ttf" id="1_p0wlc"]
+[ext_resource type="Texture2D" uid="uid://bsk628ndepa3v" path="res://assets/items/watermelon.png" id="2_2epne"]
+
+[node name="LevelSelect" type="Control" unique_id=310870335]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2epne")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=884715997]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2005330360]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12225223, 0.12225223, 0.12225223, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1426242812]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -262.0
+offset_right = 1178.0
+offset_bottom = 262.0
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=884828776]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="row1" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1811591007]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Level1" type="Button" parent="MarginContainer/VBoxContainer/row1" unique_id=380829843]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "1"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level2" type="Button" parent="MarginContainer/VBoxContainer/row1" unique_id=1069601048]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "2"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level3" type="Button" parent="MarginContainer/VBoxContainer/row1" unique_id=355493981]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "3"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level4" type="Button" parent="MarginContainer/VBoxContainer/row1" unique_id=1410933530]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "4"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level5" type="Button" parent="MarginContainer/VBoxContainer/row1" unique_id=1280410820]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "5"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="row2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=158891397]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Level" type="Button" parent="MarginContainer/VBoxContainer/row2" unique_id=1981394312]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "6"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level2" type="Button" parent="MarginContainer/VBoxContainer/row2" unique_id=135365092]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "7"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level3" type="Button" parent="MarginContainer/VBoxContainer/row2" unique_id=2110438949]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "8"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level4" type="Button" parent="MarginContainer/VBoxContainer/row2" unique_id=1525794157]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "9"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level5" type="Button" parent="MarginContainer/VBoxContainer/row2" unique_id=1658761165]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "10"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="row3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=17254860]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Level" type="Button" parent="MarginContainer/VBoxContainer/row3" unique_id=509765766]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "11"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level2" type="Button" parent="MarginContainer/VBoxContainer/row3" unique_id=1225604248]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "12"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level3" type="Button" parent="MarginContainer/VBoxContainer/row3" unique_id=1528434941]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "13"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level4" type="Button" parent="MarginContainer/VBoxContainer/row3" unique_id=1351093243]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "14"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level5" type="Button" parent="MarginContainer/VBoxContainer/row3" unique_id=151821390]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 36
+text = "15"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="LevelsName" type="Label" parent="." unique_id=1910019894]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_p0wlc")
+theme_override_font_sizes/font_size = 65
+text = "Select Level:"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://d1xv1mwcsixam"
-path="res://.godot/imported/Anak Gedong.ttf-307b6bf4ea7300c845610301d95d3138.fontdata"
+path="res://.godot/imported/Anak Gedong.ttf-beb87c42c15ce0e60bc530646d84ab2c.fontdata"
 
 [deps]
 
-source_file="res://assets/Anak Gedong.ttf"
-dest_files=["res://.godot/imported/Anak Gedong.ttf-307b6bf4ea7300c845610301d95d3138.fontdata"]
+source_file="res://fonts/Anak Gedong.ttf"
+dest_files=["res://.godot/imported/Anak Gedong.ttf-beb87c42c15ce0e60bc530646d84ab2c.fontdata"]
 
 [params]
 

@@ -1,19 +1,11 @@
 [gd_scene format=3 uid="uid://bprqw6ienfujp"]
 
-[ext_resource type="FontFile" uid="uid://d1xv1mwcsixam" path="res://assets/Anak Gedong.ttf" id="1_06t4h"]
+[ext_resource type="FontFile" uid="uid://d1xv1mwcsixam" path="res://fonts/Anak Gedong.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://ct0tp8wvu1uqa" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://c0pngvlfjf604" path="res://assets/sounds/lofistartpage.mp3" id="3_bqqt6"]
-[ext_resource type="Script" uid="uid://i1kd2d8chp7o" path="res://scenes/audio_control.gd" id="4_wu84c"]
-[ext_resource type="Script" uid="uid://cg7ac4fq6kya8" path="res://scenes/fullscreen_control.gd" id="5_8ln24"]
-[ext_resource type="Script" uid="uid://culj1aetisa4h" path="res://scenes/scale_control.gd" id="6_rtw2f"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7vrkn"]
-load_path = "res://.godot/imported/Green.png-c8cb3fa3b8c1a08968c5f808f33c2317.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gynv"]
-texture = SubResource("CompressedTexture2D_7vrkn")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[ext_resource type="Script" uid="uid://i1kd2d8chp7o" path="res://scripts/audio_control.gd" id="4_wu84c"]
+[ext_resource type="Script" uid="uid://cg7ac4fq6kya8" path="res://scripts/fullscreen_control.gd" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://culj1aetisa4h" path="res://scripts/scale_control.gd" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(12.271833, 11.84926, 8.327809, 1)
@@ -62,14 +54,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
 
-[node name="Background" type="Panel" parent="." unique_id=156523435]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=761535097]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2099162268]
+show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_6gynv")
+color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 
 [node name="MainButtons" type="VBoxContainer" parent="." unique_id=1814555814]
 layout_mode = 1
@@ -127,7 +122,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
-text = "Exit"
+text = "Levels"
 
 [node name="Label" type="Label" parent="." unique_id=1465451366]
 layout_mode = 1
@@ -150,6 +145,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Options" type="Panel" parent="." unique_id=742310115]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -271,6 +267,7 @@ text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="MainButtons/Button3" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="Options/Button3" to="." method="_on_back_options_pressed"]
 [connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
 [connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]
