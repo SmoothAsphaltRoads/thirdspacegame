@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dfdt2g58y0pbf" path="res://assets/tilemap/Terrain (16x16).png" id="1_ksju7"]
 [ext_resource type="Texture2D" uid="uid://c2q78djs51c7i" path="res://assets/background/Green.png" id="1_nsrm0"]
+[ext_resource type="Script" uid="uid://cdra1i6ol7uv0" path="res://scripts/levels/level_1.gd" id="1_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://dpvyyggergrjk" path="res://scenes/player.tscn" id="2_6iamk"]
 [ext_resource type="PackedScene" uid="uid://danb2mi7ejawn" path="res://scenes/end_goal.tscn" id="4_x42e6"]
 [ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="5_6761a"]
+[ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="6_sk5k4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -182,6 +184,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6iamk")
 
 [node name="LevelRoot" type="Node2D" unique_id=1702505771]
+script = ExtResource("1_oc4kc")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=203758464]
 texture_filter = 1
@@ -204,3 +207,5 @@ position = Vector2(105, 315)
 
 [node name="Spike" parent="." unique_id=1027517052 instance=ExtResource("5_6761a")]
 position = Vector2(350, 359)
+
+[node name="Timer" parent="." unique_id=1629730102 instance=ExtResource("6_sk5k4")]

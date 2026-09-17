@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d0dcjjhj8lyla"]
+
+[ext_resource type="Script" uid="uid://c61syw1i6lgbb" path="res://scripts/timer.gd" id="1_srplv"]
+
+[node name="Timer" type="CanvasLayer" unique_id=1629730102]
+script = ExtResource("1_srplv")
+
+[node name="Label" type="Label" parent="." unique_id=300739331]
+offset_right = 282.0
+offset_bottom = 179.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(64, 64)
+theme_override_font_sizes/font_size = 40
