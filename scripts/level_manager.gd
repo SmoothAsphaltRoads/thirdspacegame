@@ -8,6 +8,7 @@ var levels: Array[String] = [
 	"res://scenes/levels/level_5.tscn",
 	"res://scenes/levels/level_6.tscn",
 	"res://scenes/levels/level_7.tscn",
+	"res://scenes/levels/level_8.tscn",
 ]
 var menus: Array[String] = [
 	"res://scenes/main_menu.tscn"
@@ -19,6 +20,8 @@ var total_time: Array[int] = [
 	30,
 	20,
 	20,
+	20,
+	20
 ]
 
 var is_changing := false
