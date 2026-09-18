@@ -245,8 +245,9 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2x3"]
-size = Vector2(21, 29)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
+radius = 8.5
+height = 29.666668
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6eo5"]
 size = Vector2(21, 29.333334)
@@ -263,7 +264,7 @@ autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1129575988]
 position = Vector2(0.5, 1.5)
-shape = SubResource("RectangleShape2D_0o2x3")
+shape = SubResource("CapsuleShape2D_smehm")
 
 [node name="Jump sound" type="AudioStreamPlayer2D" parent="." unique_id=1899695979]
 stream = ExtResource("6_tuyoq")
