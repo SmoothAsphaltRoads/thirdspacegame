@@ -1,14 +1,14 @@
 [gd_scene format=4 uid="uid://o8wp3o553mpu"]
 
+[ext_resource type="Script" uid="uid://byoloovgncu3f" path="res://scripts/levels/level_6.gd" id="1_e18e5"]
 [ext_resource type="Texture2D" uid="uid://dfdt2g58y0pbf" path="res://assets/tilemap/Terrain (16x16).png" id="1_ksju7"]
-[ext_resource type="Script" uid="uid://ivr27all6h7o" path="res://scripts/levels/level_3.gd" id="1_vvoq0"]
 [ext_resource type="PackedScene" uid="uid://dpvyyggergrjk" path="res://scenes/player.tscn" id="2_6iamk"]
 [ext_resource type="Texture2D" uid="uid://cr5eoeyrkfb03" path="res://assets/background/Gray.png" id="2_7x7cx"]
 [ext_resource type="PackedScene" uid="uid://danb2mi7ejawn" path="res://scenes/end_goal.tscn" id="5_l37oo"]
 [ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="6_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="7_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="7_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="8_posk4"]
-[ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="9_sjq8i"]
+[ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="8_glw47"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -210,7 +210,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6iamk")
 
 [node name="LevelRoot" type="Node2D" unique_id=1702505771]
-script = ExtResource("1_vvoq0")
+script = ExtResource("1_e18e5")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=203758464]
 texture_filter = 1
@@ -236,8 +236,8 @@ position = Vector2(155, 365)
 [node name="Spike4" parent="." unique_id=1544853801 instance=ExtResource("6_qpwj6")]
 position = Vector2(439, 550)
 
-[node name="Boost" parent="." unique_id=1202985956 instance=ExtResource("8_posk4")]
+[node name="Boost" parent="." unique_id=1202985956 instance=ExtResource("7_fkk1g")]
 position = Vector2(602, 407)
 
-[node name="Enemy" parent="." unique_id=389120182 instance=ExtResource("9_sjq8i")]
+[node name="Enemy" parent="." unique_id=389120182 instance=ExtResource("8_glw47")]
 position = Vector2(847, 397)
