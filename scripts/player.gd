@@ -60,9 +60,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, direction * MAX_SPEED, ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
-	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
-		print("vel=", velocity, " floor=", is_on_floor(), " wall=", is_on_wall(), " dead=", is_dead)
-	
+		
 	_update_animation(direction)
 	move_and_slide()
 	_check_enemy_collision()
@@ -94,18 +92,14 @@ func _check_object_collision() -> void:
 			return
 
 func die() -> void:
-	print("die() called, is_dead=", is_dead)
 	if is_dead:
 		return
 	is_dead = true
 	velocity = Vector2.ZERO
 	death_sound.play(0.3)
 	animated_sprite_2d.play("Hit")
-	print("playing: ", animated_sprite_2d.animation, " is_playing=", animated_sprite_2d.is_playing())
 	await animated_sprite_2d.animation_finished
-	print("animation done")
 	LevelManager.restart_level()
-	print("restart called")
 
 
 func _update_animation(direction: float) -> void:
