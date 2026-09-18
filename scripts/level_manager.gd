@@ -24,6 +24,13 @@ func go_to_next_level() -> void:
 	current_level = current_level % levels.size()
 	change_scene(levels[current_level])
 
+func load_level(index : int) -> void:
+	if is_changing:
+		return
+	current_level = index % levels.size()
+	change_scene(levels[current_level])
+	
+
 func restart_level() -> void:
 	change_scene(levels[current_level])
 
