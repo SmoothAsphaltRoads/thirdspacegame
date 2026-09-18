@@ -5,9 +5,15 @@
 [node name="Timer" type="CanvasLayer" unique_id=1629730102]
 script = ExtResource("1_srplv")
 
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=113203982]
+position = Vector2(0.34224513, 1.1408447)
+scale = Vector2(1.3422451, 1.5704226)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(151, -2, 0, 140, -1, -1)
+
 [node name="Label" type="Label" parent="." unique_id=300739331]
-offset_right = 282.0
-offset_bottom = 179.0
+offset_right = 199.0
+offset_bottom = 220.68094
 offset_transform_enabled = true
-offset_transform_position = Vector2(64, 64)
+offset_transform_position = Vector2(30, 30)
 theme_override_font_sizes/font_size = 40

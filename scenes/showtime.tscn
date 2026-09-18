@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cg438qio6xq7w"]
+
+[ext_resource type="Script" uid="uid://cv63axmrlppoa" path="res://scripts/show.gd" id="1_dk7he"]
+
+[node name="Showtime" type="CanvasLayer" unique_id=2131573093]
+layer = 128
+script = ExtResource("1_dk7he")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1460023024]
+offset_right = 1270.0
+offset_bottom = 719.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=520752738]
+offset_left = 435.0
+offset_top = 272.0
+offset_right = 851.0
+offset_bottom = 389.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -79,6 +79,8 @@ func _check_object_collision() -> void:
 	for area in overlapping:
 		if area.is_in_group("endGoal"):
 			goal_reach_sound.play()
+			var timer := get_tree().current_scene.get_node("Timer")
+			LevelManager.time_left = timer.timeLeft
 			await LevelManager.go_to_next_level()
 			return
 		if area.is_in_group("trap"):
