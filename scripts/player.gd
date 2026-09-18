@@ -79,7 +79,7 @@ func _check_object_collision() -> void:
 	for area in overlapping:
 		if area.is_in_group("endGoal"):
 			goal_reach_sound.play()
-			LevelManager.go_to_next_level()
+			await LevelManager.go_to_next_level()
 			return
 		if area.is_in_group("trap"):
 			die()

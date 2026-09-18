@@ -1,9 +1,35 @@
 [gd_scene format=3 uid="uid://danb2mi7ejawn"]
 
+[ext_resource type="Script" uid="uid://c6s4c2n0babgf" path="res://scripts/end_goal.gd" id="1_dfs2x"]
 [ext_resource type="Texture2D" uid="uid://cj6t28dcgoihr" path="res://assets/items/Bananas.png" id="1_ucdw6"]
+[ext_resource type="Texture2D" uid="uid://ck20rwlutdxrl" path="res://assets/items/Collected.png" id="2_qvgvj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co5cm"]
 size = Vector2(20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo3p1"]
+atlas = ExtResource("2_qvgvj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d52j6"]
+atlas = ExtResource("2_qvgvj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lxvw"]
+atlas = ExtResource("2_qvgvj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaogo"]
+atlas = ExtResource("2_qvgvj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr5jv"]
+atlas = ExtResource("2_qvgvj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stlbp"]
+atlas = ExtResource("2_qvgvj")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hn7s"]
 atlas = ExtResource("1_ucdw6")
@@ -77,6 +103,29 @@ region = Rect2(512, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jo3p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d52j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lxvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaogo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr5jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stlbp")
+}],
+"loop": 0,
+"name": &"Collected",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5hn7s")
 }, {
 "duration": 1.0,
@@ -134,6 +183,7 @@ animations = [{
 
 [node name="endgoal" type="Area2D" unique_id=1795683256 groups=["endGoal"]]
 scale = Vector2(3, 3)
+script = ExtResource("1_dfs2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=185369460]
 position = Vector2(0, -0.5)
@@ -142,6 +192,7 @@ shape = SubResource("RectangleShape2D_co5cm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=57141028]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0o2x3")
-animation = &"Idle"
+animation = &"Collected"
 autoplay = "Idle"
-frame_progress = 0.24213724
+frame = 5
+frame_progress = 1.0
