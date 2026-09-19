@@ -251,3 +251,4 @@ position = Vector2(784, 598)
 
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("10_hkd47")]
 layer = 2
+visible = false
