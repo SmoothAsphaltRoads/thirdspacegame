@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bec7v0awiriaj"]
+
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="1_mqjok"]
+[ext_resource type="Script" uid="uid://cwvdeatiichbf" path="res://scripts/button.gd" id="2_fyrdv"]
+
+[node name="Node2D" type="Node2D" unique_id=150699113]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=979151040]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1566669168]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12225223, 0.12225223, 0.12225223, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1037719747]
+offset_left = 201.0
+offset_top = 79.0
+offset_right = 1076.0
+offset_bottom = 480.0
+theme_override_colors/font_color = Color(0.92872566, 0.9240192, 2.3102762e-06, 1)
+theme_override_fonts/font = ExtResource("1_mqjok")
+theme_override_font_sizes/font_size = 150
+text = "Game
+Complete!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=752413522]
+offset_left = 478.0
+offset_top = 460.0
+offset_right = 839.0
+offset_bottom = 574.0
+theme_override_fonts/font = ExtResource("1_mqjok")
+theme_override_font_sizes/font_size = 65
+text = "MAIN MENU"
+script = ExtResource("2_fyrdv")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

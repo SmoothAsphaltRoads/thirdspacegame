@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="7_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="8_6nuwh"]
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="9_m2cpo"]
+[ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_kj523"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -250,3 +251,6 @@ position = Vector2(641, 401)
 
 [node name="endgoal2" parent="." unique_id=1694983111 instance=ExtResource("5_l37oo")]
 position = Vector2(272, 164)
+
+[node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("10_kj523")]
+layer = 2

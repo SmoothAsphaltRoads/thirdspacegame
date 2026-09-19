@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://b2m8idh0x87o4"]
+
+[ext_resource type="Script" uid="uid://d103nds8ns3kb" path="res://scripts/pause_menu.gd" id="1_myx47"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="2_kukqi"]
+[ext_resource type="Script" uid="uid://i1kd2d8chp7o" path="res://scripts/audio_control.gd" id="3_7l7mv"]
+[ext_resource type="Script" uid="uid://cg7ac4fq6kya8" path="res://scripts/fullscreen_control.gd" id="4_v4r4p"]
+[ext_resource type="Script" uid="uid://culj1aetisa4h" path="res://scripts/scale_control.gd" id="5_1s2dm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s2dm"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ofnjo"]
+color = Color(1.1755697, 1.1755697, 1.1755697, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1rgno"]
+color = Color(0.34618732, 0.54770494, 1, 1)
+thickness = 6
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=34280368]
+process_mode = 3
+script = ExtResource("1_myx47")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1398512056]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.011764706, 0.011764706, 0.011764706, 0.60784316)
+
+[node name="PauseButtons" type="VBoxContainer" parent="." unique_id=1115627463]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.25
+offset_top = -91.25
+offset_right = 166.25
+offset_bottom = 91.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="PauseButtons" unique_id=1104604613]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 48
+text = "Resume"
+
+[node name="Quit" type="Button" parent="PauseButtons" unique_id=72770718]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[node name="Options" type="Button" parent="PauseButtons" unique_id=1626527690]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="Options" type="Panel" parent="PauseButtons/Options" unique_id=512545416]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -163.0
+offset_right = 285.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1s2dm")
+
+[node name="Label" type="Label" parent="PauseButtons/Options/Options" unique_id=705616632]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 572.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 30
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioControl" type="HSlider" parent="PauseButtons/Options/Options" unique_id=155379583]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 110.0
+offset_right = 493.0
+offset_bottom = 138.0
+theme_override_styles/slider = SubResource("StyleBoxLine_ofnjo")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_1rgno")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_7l7mv")
+audio_bus_name = "Music"
+
+[node name="FullscreenControl" type="CheckButton" parent="PauseButtons/Options/Options" unique_id=1545940199]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 131.0
+offset_right = 481.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 33
+text = "Fullscreen
+"
+script = ExtResource("4_v4r4p")
+
+[node name="ScaleControl" type="OptionButton" parent="PauseButtons/Options/Options" unique_id=1341323783]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 201.0
+offset_right = 479.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 25
+selected = 4
+item_count = 8
+popup/item_0/text = "200%"
+popup/item_0/id = 7
+popup/item_1/text = "175%"
+popup/item_1/id = 6
+popup/item_2/text = "150%"
+popup/item_2/id = 5
+popup/item_3/text = "125%"
+popup/item_3/id = 4
+popup/item_4/text = "100%"
+popup/item_4/id = 0
+popup/item_5/text = "75%"
+popup/item_5/id = 1
+popup/item_6/text = "50%"
+popup/item_6/id = 2
+popup/item_7/text = "25%"
+popup/item_7/id = 3
+script = ExtResource("5_1s2dm")
+
+[node name="Label2" type="Label" parent="PauseButtons/Options/Options" unique_id=1002462835]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 202.0
+offset_right = 300.0
+offset_bottom = 255.0
+theme_override_font_sizes/font_size = 33
+text = "Resolution"
+
+[node name="Label3" type="Label" parent="PauseButtons/Options/Options" unique_id=220880672]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 59.0
+offset_right = 478.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 33
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PauseButtons/Resume" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PauseButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PauseButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="value_changed" from="PauseButtons/Options/Options/AudioControl" to="PauseButtons/Options/Options/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="PauseButtons/Options/Options/FullscreenControl" to="PauseButtons/Options/Options/FullscreenControl" method="_on_toggled"]
+[connection signal="item_selected" from="PauseButtons/Options/Options/ScaleControl" to="PauseButtons/Options/Options/ScaleControl" method="_on_item_selected"]

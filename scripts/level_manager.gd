@@ -39,6 +39,8 @@ func go_to_next_level() -> void:
 	if is_changing:
 		return
 	current_level += 1
+	if (current_level % levels.size()==0):
+		change_scene("res://scenes/ending.tscn")
 	current_level = current_level % levels.size()
 	if is_changing:
 		return
