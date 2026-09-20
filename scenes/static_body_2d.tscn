@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cq5tgkwexdaa5"]
+
+[ext_resource type="Script" uid="uid://ohr1bvwa46q4" path="res://static_body_2d.gd" id="1_dw7mk"]
+[ext_resource type="Texture2D" uid="uid://bumnmflabg10q" path="res://assets/items/download.jpeg" id="2_t2w1a"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="3_t2w1a"]
+[ext_resource type="AudioStream" uid="uid://c5i61qundn0ly" path="res://assets/sounds/InfoBoxSound.mp3" id="4_d0w87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgydm"]
+size = Vector2(94, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vul6e"]
+size = Vector2(94.5, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw7mk"]
+bg_color = Color(0.003921569, 0.003921569, 0.003921569, 0.60784316)
+
+[node name="InfoBlock" type="StaticBody2D" unique_id=439078850]
+position = Vector2(648, 300)
+collision_layer = 2
+script = ExtResource("1_dw7mk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1881878260]
+position = Vector2(-28.75, -32.5)
+scale = Vector2(0.6192053, 0.5608108)
+texture = ExtResource("2_t2w1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=207289247]
+position = Vector2(-29, -32.5)
+shape = SubResource("RectangleShape2D_rgydm")
+
+[node name="HitDetector" type="Area2D" parent="." unique_id=1450425987]
+position = Vector2(0, 74)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetector" unique_id=1682473430]
+position = Vector2(-29.25, -65)
+shape = SubResource("RectangleShape2D_vul6e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2144119824]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=265942131]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -233.5
+offset_right = 492.0
+offset_bottom = 233.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_t2w1a")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw7mk")
+text = "Escape the line
+ of spikes!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Label" unique_id=1797987944]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 373.0
+offset_right = 647.0
+offset_bottom = 436.0
+theme_override_fonts/font = ExtResource("3_t2w1a")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=25475495]
+stream = ExtResource("4_d0w87")
+
+[connection signal="body_shape_entered" from="HitDetector" to="." method="_on_hit_detector_body_shape_entered"]
+[connection signal="body_shape_exited" from="HitDetector" to="." method="_on_hit_detector_body_shape_exited"]
+[connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_button_pressed"]
