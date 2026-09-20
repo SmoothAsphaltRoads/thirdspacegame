@@ -313,3 +313,5 @@ position = Vector2(366, 552)
 
 [node name="InfoBlock" parent="." unique_id=439078850 instance=ExtResource("9_bk8ll")]
 position = Vector2(230, 172)
+info_text = "Escape the line
+of spikes!"

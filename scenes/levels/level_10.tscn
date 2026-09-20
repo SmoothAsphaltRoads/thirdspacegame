@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="8_6nuwh"]
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="9_m2cpo"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_hkd47"]
+[ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="11_hvxp4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -252,3 +253,7 @@ position = Vector2(784, 598)
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("10_hkd47")]
 layer = 2
 visible = false
+
+[node name="InfoBlock" parent="." unique_id=439078850 instance=ExtResource("11_hvxp4")]
+position = Vector2(222, 273)
+info_text = "Avoid the ground."

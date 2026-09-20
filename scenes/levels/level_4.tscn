@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="7_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="8_glw47"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_glw47"]
+[ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="11_4wsov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -221,3 +222,9 @@ position = Vector2(460, 496)
 
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("10_glw47")]
 layer = 2
+visible = false
+
+[node name="InfoBlock" parent="." unique_id=439078850 instance=ExtResource("11_4wsov")]
+position = Vector2(754, 300)
+info_text = "You're getting the
+hang of it now!"

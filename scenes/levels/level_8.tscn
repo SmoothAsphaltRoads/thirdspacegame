@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="6_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="7_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="8_h6r4t"]
+[ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="9_w2i51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -239,10 +240,16 @@ position = Vector2(985, 408)
 position = Vector2(984, 213)
 
 [node name="Player" parent="." unique_id=191484152 instance=ExtResource("2_6iamk")]
-position = Vector2(155, 365)
+position = Vector2(107, 365)
 
 [node name="Spike4" parent="." unique_id=1544853801 instance=ExtResource("6_qpwj6")]
 position = Vector2(467, 502)
 
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("8_h6r4t")]
 layer = 2
+visible = false
+
+[node name="InfoBlock" parent="." unique_id=439078850 instance=ExtResource("9_w2i51")]
+position = Vector2(296, 302)
+info_text = "Once again this
+level!"

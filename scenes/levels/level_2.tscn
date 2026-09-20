@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="6_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="7_ibugp"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="9_3p04p"]
+[ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="10_qsp8v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -217,3 +218,9 @@ position = Vector2(385, 408)
 
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("9_3p04p")]
 layer = 2
+visible = false
+
+[node name="InfoBlock" parent="." unique_id=439078850 instance=ExtResource("10_qsp8v")]
+position = Vector2(266, 233)
+info_text = "That ladybug WILL
+kill you"

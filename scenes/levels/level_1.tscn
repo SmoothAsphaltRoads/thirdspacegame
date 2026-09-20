@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="5_6761a"]
 [ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="6_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="8_s8va5"]
+[ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="9_dga24"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -213,3 +214,7 @@ position = Vector2(350, 359)
 
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("8_s8va5")]
 layer = 2
+visible = false
+
+[node name="InfoBlock" parent="." unique_id=439078850 instance=ExtResource("9_dga24")]
+position = Vector2(229, 225)

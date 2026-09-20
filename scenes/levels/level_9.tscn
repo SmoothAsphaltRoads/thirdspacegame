@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="8_6nuwh"]
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="9_m2cpo"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_kj523"]
+[ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="11_xampj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iamk"]
 texture = ExtResource("1_ksju7")
@@ -232,7 +233,7 @@ position = Vector2(1086, 366)
 [node name="Timer" parent="." unique_id=1629730102 instance=ExtResource("7_ugcn1")]
 
 [node name="Player" parent="." unique_id=191484152 instance=ExtResource("2_6iamk")]
-position = Vector2(155, 365)
+position = Vector2(85, 377)
 
 [node name="Spike4" parent="." unique_id=1544853801 instance=ExtResource("6_qpwj6")]
 position = Vector2(751, 405)
@@ -254,3 +255,8 @@ position = Vector2(272, 164)
 
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("10_kj523")]
 layer = 2
+visible = false
+
+[node name="InfoBlock" parent="." unique_id=439078850 instance=ExtResource("11_xampj")]
+position = Vector2(209, 317)
+info_text = "Double Jump!"
