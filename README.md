@@ -1,4 +1,5 @@
 # thirdspacegame
+# Play it here! https://asphaltroads.itch.io/thirdspace
 ## What is thirdspace?
 Third Space is a platformer which combines powerups from MMOs type games and implements them in a platformer!
 ## How are power ups implemented? 
