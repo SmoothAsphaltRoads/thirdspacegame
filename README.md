@@ -18,4 +18,9 @@ Currently, powerups are WIP however our vision is to make it cost some amount of
 * Powerup mechnanics
 * Levels 12-20
 * a star system (rating performance based on time taken)
+  # Screenshots
   
+  <img width="1258" height="708" alt="image" src="https://github.com/user-attachments/assets/9308caf6-acff-4b48-a25a-1a7424d18943" />
+  <img width="1247" height="662" alt="image" src="https://github.com/user-attachments/assets/e7aac11e-f6d0-4e1e-8f6d-6115a7cd669a" />
+<img width="1218" height="684" alt="image" src="https://github.com/user-attachments/assets/95253421-73bb-4b0a-b915-c552855dbcf9" />
+<img width="1244" height="742" alt="image" src="https://github.com/user-attachments/assets/46ace29b-deab-4005-8aa0-dfcd16800401" />
