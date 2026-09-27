@@ -8,7 +8,7 @@ const penalty := 5.0
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
-
+		
 func _deduct_penalty() -> void:
 	var timer = get_tree().get_first_node_in_group("level_timer")
 	if timer:
@@ -40,6 +40,6 @@ func _on_jump_selected() -> void:
 func _on_shield_selected() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
-		player.is_invincible = true
+		player.has_shield = true
 	_deduct_penalty()
 	_start_game()

@@ -1,22 +1,31 @@
 [gd_scene format=3 uid="uid://cg438qio6xq7w"]
 
 [ext_resource type="Script" uid="uid://cv63axmrlppoa" path="res://scripts/show.gd" id="1_dk7he"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="2_pgoc7"]
 
 [node name="Showtime" type="CanvasLayer" unique_id=2131573093]
 layer = 128
 script = ExtResource("1_dk7he")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1460023024]
-offset_right = 1270.0
-offset_bottom = 719.0
+offset_right = 2001.0
+offset_bottom = 1165.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=520752738]
-offset_left = 435.0
-offset_top = 272.0
-offset_right = 851.0
-offset_bottom = 389.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -206.5
+offset_right = 208.0
+offset_bottom = -89.5
+grow_horizontal = 2
+grow_vertical = 2
 offset_transform_enabled = true
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("2_pgoc7")
+theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1

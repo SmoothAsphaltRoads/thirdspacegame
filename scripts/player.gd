@@ -20,6 +20,8 @@ var JUMP_BUFFER_TIMER := 0.0
 var BOOST_HEIGHT:= -1000
 var SPEED_MULTIPLIER := 1.0
 var JUMP_MULTIPLIER := 1.0
+var has_shield := false
+var shield_active := false
 var speed_multiplier: float:
 	get:
 		return SPEED_MULTIPLIER
@@ -36,6 +38,8 @@ var is_dead := false
 
 
 func _physics_process(delta: float) -> void:
+	if (Input.is_key_pressed(KEY_E) and has_shield and not shield_active):
+		use_shield()
 	if is_dead:
 		return
 
@@ -78,7 +82,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_check_enemy_collision()
 	_check_object_collision()
-
+func use_shield() -> void:
+	if not has_shield or shield_active or is_dead:
+		return
+	has_shield = false
+	shield_active = true
+	is_invincible = true
+	modulate = Color(0.3, 0.8, 1.0, 0.8)
+	await get_tree().create_timer(3.0).timeout
+	is_invincible=false
+	shield_active=false
+	modulate = Color(1.0,1.0,1.0,1.0)
 
 func _check_enemy_collision() -> void:
 	for i in get_slide_collision_count():
