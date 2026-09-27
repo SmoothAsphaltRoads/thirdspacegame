@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var death_sound: AudioStreamPlayer2D = $"Death sound"
 @onready var goal_reach_sound: AudioStreamPlayer2D = $"Goal reach sound"
 @onready var goal_detector: Area2D = $GoalDetector
+@onready var dust_particles: CPUParticles2D = $DustParticles
 
 const BASE_SPEED := 50.0
 const MAX_SPEED := 300.0
@@ -134,10 +135,13 @@ func die() -> void:
 func _update_animation(direction: float) -> void:
 	if not is_on_floor():
 		animated_sprite_2d.animation = "Jump"
+		dust_particles.emitting = false
 	elif absf(velocity.x) > 1.0:
 		animated_sprite_2d.animation = "Run"
+		dust_particles.emitting = true
 	else:
 		animated_sprite_2d.animation = "Idle"
-
+		dust_particles.emitting = false
 	if direction != 0.0:
-		animated_sprite_2d.flip_h = direction < 0.
+		animated_sprite_2d.flip_h = direction < 0.0
+		dust_particles.scale.x = -1.0 if direction <0.0 else 1.0

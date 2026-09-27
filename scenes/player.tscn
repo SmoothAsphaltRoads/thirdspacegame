@@ -281,3 +281,15 @@ stream = ExtResource("8_smehm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector" unique_id=1949617933]
 position = Vector2(0, 0.3333335)
 shape = SubResource("RectangleShape2D_y6eo5")
+
+[node name="DustParticles" type="CPUParticles2D" parent="." unique_id=1846408331]
+position = Vector2(0, 15)
+lifetime = 0.4
+direction = Vector2(-1, -0.5)
+spread = 25.0
+gravity = Vector2(0, 30)
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+scale_amount_min = 2.0
+scale_amount_max = 3.5
+color = Color(1, 1, 1, 0.6)
