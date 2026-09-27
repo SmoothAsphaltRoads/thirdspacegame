@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://danb2mi7ejawn" path="res://scenes/end_goal.tscn" id="8_gr7jt"]
 [ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="9_bk8ll"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_4fty2"]
+[ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="11_1nnno"]
 
 [node name="LevelRoot" type="Node2D" unique_id=1076902885]
 script = ExtResource("1_ntgks")
@@ -93,3 +94,5 @@ info_text = "Escape the line
 of spikes!"
 
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("10_4fty2")]
+
+[node name="BoostMenu" parent="." unique_id=151055942 instance=ExtResource("11_1nnno")]

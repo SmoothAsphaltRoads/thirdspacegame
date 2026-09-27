@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="8_glw47"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_glw47"]
 [ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="11_4wsov"]
+[ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="12_qvnao"]
 
 [node name="LevelRoot" type="Node2D" unique_id=1702505771]
 script = ExtResource("1_um320")
@@ -53,3 +54,5 @@ visible = false
 position = Vector2(754, 300)
 info_text = "You're getting the
 hang of it now!"
+
+[node name="BoostMenu" parent="." unique_id=151055942 instance=ExtResource("12_qvnao")]

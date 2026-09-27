@@ -27,7 +27,7 @@ theme_override_fonts/font = ExtResource("2_dtwps")
 theme_override_font_sizes/font_size = 48
 text = "Speed Boost
 
-+50% Speed"
++25% Speed"
 autowrap_trim_flags = 0
 
 [node name="jump_boost" type="Button" parent="HBoxContainer" unique_id=1423047711]

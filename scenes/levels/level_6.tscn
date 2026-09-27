@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="8_glw47"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_m5qie"]
 [ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="11_kydov"]
+[ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="12_uwlxl"]
 
 [node name="LevelRoot" type="Node2D" unique_id=1702505771]
 script = ExtResource("1_e18e5")
@@ -55,8 +56,12 @@ info_text = "You have entered
 the moonlight 
 dimension!"
 
+<<<<<<< HEAD
 [node name="CanvasLayer" parent="InfoBlock" index="3" unique_id=2144119824]
 visible = false
 
 [editable path="PauseMenu"]
 [editable path="InfoBlock"]
+=======
+[node name="BoostMenu" parent="." unique_id=151055942 instance=ExtResource("12_uwlxl")]
+>>>>>>> 6d5619793729938fb9243987fb5481039b3daa2d
