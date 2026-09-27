@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c6b3et2vxurl1"]
+
+[ext_resource type="Script" uid="uid://bo7xprhb20wc1" path="res://boost_menu.gd" id="1_7efx1"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="2_dtwps"]
+
+[node name="BoostMenu" type="CanvasLayer" unique_id=151055942]
+process_mode = 3
+script = ExtResource("1_7efx1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=824616069]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -464.0
+offset_top = -228.0
+offset_right = 445.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="speed_boost" type="Button" parent="HBoxContainer" unique_id=2095494948]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_dtwps")
+theme_override_font_sizes/font_size = 48
+text = "Speed Boost
+
++50% Speed"
+autowrap_trim_flags = 0
+
+[node name="jump_boost" type="Button" parent="HBoxContainer" unique_id=1423047711]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_dtwps")
+theme_override_font_sizes/font_size = 48
+text = "High Jump
+
++30% Jump"
+autowrap_trim_flags = 0
+
+[node name="shield_button" type="Button" parent="HBoxContainer" unique_id=91380428]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_dtwps")
+theme_override_font_sizes/font_size = 48
+text = "Shield
+
+Invincibility"
+autowrap_trim_flags = 0
+
+[node name="start" type="Button" parent="." unique_id=396382606]
+offset_left = 779.0
+offset_top = 798.0
+offset_right = 1155.0
+offset_bottom = 886.0
+theme_override_fonts/font = ExtResource("2_dtwps")
+theme_override_font_sizes/font_size = 48
+text = "No boosts"
+
+[connection signal="pressed" from="HBoxContainer/speed_boost" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="HBoxContainer/jump_boost" to="." method="_on_jump_selected"]
+[connection signal="pressed" from="HBoxContainer/shield_button" to="." method="_on_shield_selected"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

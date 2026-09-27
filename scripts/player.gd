@@ -18,8 +18,21 @@ var COYOTE_TIMER := 0.0
 const JUMP_BUFFER_TIME := 0.15
 var JUMP_BUFFER_TIMER := 0.0
 var BOOST_HEIGHT:= -1000
-
+var SPEED_MULTIPLIER := 1.0
+var JUMP_MULTIPLIER := 1.0
+var speed_multiplier: float:
+	get:
+		return SPEED_MULTIPLIER
+	set(value):
+		SPEED_MULTIPLIER = value
+var jump_multiplier: float:
+	get:
+		return JUMP_MULTIPLIER
+	set(value):
+		JUMP_MULTIPLIER = value
+var is_invincible := false
 var is_dead := false
+
 
 
 func _physics_process(delta: float) -> void:
@@ -44,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		LevelManager.go_to_next_level()
 
 	if JUMP_BUFFER_TIMER > 0.0 and COYOTE_TIMER > 0.0:
-		velocity.y = JUMP_HEIGHT
+		velocity.y = JUMP_HEIGHT * JUMP_MULTIPLIER
 		COYOTE_TIMER = 0.0
 		JUMP_BUFFER_TIMER = 0.0
 		jump_sound.play()
@@ -57,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	if direction != 0.0:
 		if absf(velocity.x) < BASE_SPEED:
 			velocity.x = direction * BASE_SPEED
-		velocity.x = move_toward(velocity.x, direction * MAX_SPEED, ACCELERATION * delta)
+		velocity.x = move_toward(velocity.x, direction * (MAX_SPEED*SPEED_MULTIPLIER), ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
 		
@@ -92,6 +105,8 @@ func _check_object_collision() -> void:
 			return
 
 func die() -> void:
+	if is_invincible:
+		return
 	if is_dead:
 		return
 	is_dead = true

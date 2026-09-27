@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ivr27all6h7o" path="res://scripts/levels/level_3.gd" id="1_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://dpvyyggergrjk" path="res://scenes/player.tscn" id="2_6iamk"]
 [ext_resource type="TileSet" uid="uid://ccnk880u5c08d" path="res://terrain_tileset.tres" id="3_2bnyt"]
+[ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="3_n6eey"]
 [ext_resource type="PackedScene" uid="uid://danb2mi7ejawn" path="res://scenes/end_goal.tscn" id="5_l37oo"]
 [ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="6_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="7_fkk1g"]
@@ -20,6 +21,8 @@ offset_right = 1281.0
 offset_bottom = 716.0
 texture = ExtResource("1_nsrm0")
 stretch_mode = 1
+
+[node name="BoostMenu" parent="." unique_id=151055942 instance=ExtResource("3_n6eey")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1259709952]
 texture_filter = 1
