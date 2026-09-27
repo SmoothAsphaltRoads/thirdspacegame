@@ -22,8 +22,8 @@ process_mode = 3
 script = ExtResource("1_myx47")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1398512056]
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_right = 1917.0
+offset_bottom = 1082.0
 color = Color(0.011764706, 0.011764706, 0.011764706, 0.60784316)
 
 [node name="PauseButtons" type="VBoxContainer" parent="." unique_id=1115627463]
@@ -32,26 +32,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -166.25
-offset_top = -91.25
-offset_right = 166.25
-offset_bottom = 91.25
+offset_left = -388.0
+offset_top = -187.0
+offset_right = -50.5
+offset_bottom = 25.333313
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.2, 2.2)
 
 [node name="Resume" type="Button" parent="PauseButtons" unique_id=1104604613]
+texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_font_sizes/font_size = 48
 text = "Resume"
 
 [node name="Quit" type="Button" parent="PauseButtons" unique_id=72770718]
+texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
 [node name="Options" type="Button" parent="PauseButtons" unique_id=1626527690]
+texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_font_sizes/font_size = 48
@@ -59,6 +63,7 @@ text = "Options"
 
 [node name="Options" type="Panel" parent="PauseButtons/Options" unique_id=512545416]
 visible = false
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

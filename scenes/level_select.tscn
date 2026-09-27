@@ -32,10 +32,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -858.0
-offset_top = -321.0
-offset_right = 822.0
-offset_bottom = 383.0
+offset_left = -863.0
+offset_top = -396.0
+offset_right = 817.0
+offset_bottom = 520.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
@@ -194,18 +194,70 @@ text = "15"
 icon = ExtResource("2_2epne")
 expand_icon = true
 
+[node name="row4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1970290935]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="Level16" type="Button" parent="MarginContainer/VBoxContainer/row4" unique_id=2083513341]
+custom_minimum_size = Vector2(270, 180)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rif6e")
+theme_override_font_sizes/font_size = 72
+text = "16
+"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level17" type="Button" parent="MarginContainer/VBoxContainer/row4" unique_id=66368702]
+custom_minimum_size = Vector2(270, 180)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rif6e")
+theme_override_font_sizes/font_size = 72
+text = "17
+"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level18" type="Button" parent="MarginContainer/VBoxContainer/row4" unique_id=1344420069]
+custom_minimum_size = Vector2(270, 180)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rif6e")
+theme_override_font_sizes/font_size = 72
+text = "18"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level19" type="Button" parent="MarginContainer/VBoxContainer/row4" unique_id=1818431023]
+custom_minimum_size = Vector2(270, 180)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rif6e")
+theme_override_font_sizes/font_size = 72
+text = "19"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
+[node name="Level20" type="Button" parent="MarginContainer/VBoxContainer/row4" unique_id=686851501]
+custom_minimum_size = Vector2(270, 180)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rif6e")
+theme_override_font_sizes/font_size = 72
+text = "20
+"
+icon = ExtResource("2_2epne")
+expand_icon = true
+
 [node name="LevelsName" type="Label" parent="." unique_id=1910019894]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -459.5
-offset_top = 18.0
+offset_top = 2.0
 offset_right = 459.5
-offset_bottom = 273.0
+offset_bottom = 257.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_rif6e")
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 125
 text = "Select Level:"
 horizontal_alignment = 1
 vertical_alignment = 1
