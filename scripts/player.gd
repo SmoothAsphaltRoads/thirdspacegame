@@ -23,6 +23,8 @@ var SPEED_MULTIPLIER := 1.0
 var JUMP_MULTIPLIER := 1.0
 var has_shield := false
 var shield_active := false
+const max_jumps :=2
+var jumps_left := max_jumps
 var speed_multiplier: float:
 	get:
 		return SPEED_MULTIPLIER
@@ -48,8 +50,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		velocity.y = minf(velocity.y, 1200.0)
 		COYOTE_TIMER -= delta
+		if COYOTE_TIMER <=0.0 and jumps_left == max_jumps:
+			jumps_left = max_jumps-1
 	else:
 		COYOTE_TIMER = COYOTE_TIME
+		jumps_left = max_jumps
 
 	if Input.is_action_just_pressed("jump"):
 		JUMP_BUFFER_TIMER = JUMP_BUFFER_TIME
@@ -61,11 +66,18 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("next"):
 		LevelManager.go_to_next_level()
 
-	if JUMP_BUFFER_TIMER > 0.0 and COYOTE_TIMER > 0.0:
-		velocity.y = JUMP_HEIGHT * JUMP_MULTIPLIER
-		COYOTE_TIMER = 0.0
-		JUMP_BUFFER_TIMER = 0.0
-		jump_sound.play()
+	if JUMP_BUFFER_TIMER > 0.0:
+		if COYOTE_TIMER > 0.0:
+			velocity.y = JUMP_HEIGHT * JUMP_MULTIPLIER
+			COYOTE_TIMER = 0.0
+			JUMP_BUFFER_TIMER = 0.0
+			jumps_left = max_jumps-1
+			jump_sound.play()
+		elif jumps_left>0:
+			velocity.y = JUMP_HEIGHT * jump_multiplier
+			jumps_left -=1
+			JUMP_BUFFER_TIMER=0.0
+			jump_sound.play()
 
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = max(velocity.y * CUT_MULTIPLIER, MIN_JUMP_HEIGHT)
@@ -78,7 +90,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, direction * (MAX_SPEED*SPEED_MULTIPLIER), ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
-		
+	
 	_update_animation(direction)
 	move_and_slide()
 	_check_enemy_collision()
