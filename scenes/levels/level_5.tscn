@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="8_glw47"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_tqnj0"]
 [ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="11_dwyms"]
+[ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="12_6xwso"]
 
 [node name="LevelRoot" type="Node2D" unique_id=1702505771]
 script = ExtResource("1_vvoq0")
@@ -58,3 +59,5 @@ visible = false
 [node name="InfoBlock" parent="." unique_id=439078850 instance=ExtResource("11_dwyms")]
 position = Vector2(276, 279)
 info_text = "Enemy Underneath!"
+
+[node name="BoostMenu" parent="." unique_id=151055942 instance=ExtResource("12_6xwso")]

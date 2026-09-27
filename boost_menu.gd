@@ -22,7 +22,7 @@ func _on_start_pressed() -> void:
 func _on_speed_pressed() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
-			player.speed_multiplier = 1.5
+			player.speed_multiplier = 1.25
 	_start_game()
 
 func _on_jump_selected() -> void:

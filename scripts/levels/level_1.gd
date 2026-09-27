@@ -1,11 +1,11 @@
 extends Node
-@onready var timer: CanvasLayer = $Timer
+@onready var timer: Label = $timer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start(10.0)
-
+	var timer := get_tree().current_scene.get_node("timer")
+	LevelManager.time_left = timer.timeLeft
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
