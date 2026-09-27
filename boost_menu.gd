@@ -4,11 +4,15 @@ extends CanvasLayer
 @onready var jump_boost: Button = $HBoxContainer/jump_boost
 @onready var shield_button: Button = $HBoxContainer/shield_button
 @onready var start_button: Button = get_node_or_null("start")
-
+const penalty := 5.0
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 
+func _deduct_penalty() -> void:
+	var timer = get_tree().get_first_node_in_group("level_timer")
+	if timer:
+		timer.reduce_time(penalty)
 
 func _start_game() -> void:
 
@@ -23,16 +27,19 @@ func _on_speed_pressed() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 			player.speed_multiplier = 1.25
+	_deduct_penalty()
 	_start_game()
 
 func _on_jump_selected() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 			player.jump_multiplier = 1.3
+	_deduct_penalty()
 	_start_game()
 
 func _on_shield_selected() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		player.is_invincible = true
+	_deduct_penalty()
 	_start_game()

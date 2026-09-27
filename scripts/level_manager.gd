@@ -31,7 +31,7 @@ var total_time: Array[int] = [
 ]
 
 var is_changing := false
-var time_left := 0.0
+var time_taken := 0.0
 
 func start_game() -> void:
 	change_scene(levels[0])
@@ -50,7 +50,7 @@ func go_to_next_level() -> void:
 	await Transition.cover()
 	get_tree().call_deferred("change_scene_to_file", levels[current_level])
 	await get_tree().process_frame
-	await Showtime.show_text("Time taken: %.1f seconds" % (total_time[current_level-1] - time_left), 1)
+	await Showtime.show_text("Time taken: %.1f seconds" % time_taken, 1)
 	await Showtime.show_text("Level : " + str(current_level+1), 1.0)
 	await Transition.reveal()
 	is_changing = false

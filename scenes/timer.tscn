@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c61syw1i6lgbb" path="res://scripts/timer.gd" id="1_srplv"]
 
-[node name="Timer" type="CanvasLayer" unique_id=1629730102]
+[node name="Timer" type="CanvasLayer" unique_id=1629730102 groups=["level_timer"]]
 script = ExtResource("1_srplv")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=113203982]
