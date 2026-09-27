@@ -37,10 +37,6 @@ region = Rect2(160, 0, 32, 32)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
-atlas = ExtResource("2_dqkch")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("2_dqkch")
 region = Rect2(32, 0, 32, 32)
@@ -76,6 +72,10 @@ region = Rect2(256, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("2_dqkch")
 region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
 atlas = ExtResource("2_dqkch")
@@ -159,9 +159,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f1ej7")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_oprun")
 }, {
 "duration": 1.0,
@@ -187,6 +184,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ni07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l71n6")
@@ -247,10 +247,10 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
 radius = 8.5
-height = 29.666668
+height = 30.66667
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6eo5"]
-size = Vector2(21, 29.333334)
+size = Vector2(20.833334, 31.333334)
 
 [node name="Player" type="CharacterBody2D" unique_id=191484152 groups=["player"]]
 scale = Vector2(3, 3)
@@ -259,11 +259,12 @@ script = ExtResource("1_qlg0r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=699046124]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_71sry")
-animation = &"Hit"
+animation = &"Idle"
 autoplay = "Idle"
+frame = 2
+frame_progress = 0.5209857
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1129575988]
-position = Vector2(0.5, 1.5)
 shape = SubResource("CapsuleShape2D_smehm")
 
 [node name="Jump sound" type="AudioStreamPlayer2D" parent="." unique_id=1899695979]
@@ -278,5 +279,5 @@ stream = ExtResource("8_smehm")
 [node name="GoalDetector" type="Area2D" parent="." unique_id=816400694]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector" unique_id=1949617933]
-position = Vector2(0.3333335, 1.333333)
+position = Vector2(0, 0.3333335)
 shape = SubResource("RectangleShape2D_y6eo5")
