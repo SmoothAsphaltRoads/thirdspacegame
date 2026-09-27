@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dg3nf7fxnd7on" path="res://assets/traps/spike/Idle.png" id="1_ljd5v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2x3"]
-size = Vector2(52, 21)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7a7y0"]
 atlas = ExtResource("1_ljd5v")
 region = Rect2(0, 0, 16, 16)
@@ -22,12 +19,12 @@ animations = [{
 
 [node name="Spike" type="Area2D" unique_id=1027517052 groups=["trap"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083470025 groups=["trap"]]
-position = Vector2(-1, 13.5)
-shape = SubResource("RectangleShape2D_0o2x3")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1374351629]
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_y6eo5")
 animation = &"Idle"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2047249923]
+position = Vector2(-24, 24)
+polygon = PackedVector2Array(0, 0, 0, -6, 3, -6, 3, -12, 6, -12, 6, -18, 9, -18, 9, -21, 12, -21, 36, -21, 36, -18, 39, -18, 39, -12, 42, -12, 42, -6, 45, -6, 45, 0)

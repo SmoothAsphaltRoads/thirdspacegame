@@ -7,7 +7,16 @@ func _ready() -> void:
 	for row in rows.get_children():
 		for button in row.get_children():
 			if button is Button:
-				button.text = str(index+1)
+				var text = str(index+1)
+				if LevelManager.level_stars.has (index):
+					var stars = LevelManager.level_stars[index]
+					if stars == 3:
+						text += "\n⭐⭐⭐"
+					elif stars == 2:
+						text += "\n⭐⭐"
+					elif stars == 1:
+						text += "\n⭐"
+				button.text = text
 				if index < LevelManager.levels.size():
 					button.pressed.connect(LevelManager.load_level.bind(index))
 				else:

@@ -27,7 +27,7 @@ theme_override_fonts/font = ExtResource("2_dtwps")
 theme_override_font_sizes/font_size = 48
 text = "Speed Boost
 
-+50% Speed"
++25% Speed"
 autowrap_trim_flags = 0
 
 [node name="jump_boost" type="Button" parent="HBoxContainer" unique_id=1423047711]
@@ -47,7 +47,10 @@ theme_override_fonts/font = ExtResource("2_dtwps")
 theme_override_font_sizes/font_size = 48
 text = "Shield
 
-Invincibility"
+Invincibility
+for 3s
+
+E to start"
 autowrap_trim_flags = 0
 
 [node name="start" type="Button" parent="." unique_id=396382606]
@@ -58,6 +61,22 @@ offset_bottom = 886.0
 theme_override_fonts/font = ExtResource("2_dtwps")
 theme_override_font_sizes/font_size = 48
 text = "No boosts"
+
+[node name="Label" type="Label" parent="." unique_id=247216835]
+offset_left = 523.0
+offset_top = 119.0
+offset_right = 1390.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("2_dtwps")
+theme_override_font_sizes/font_size = 60
+text = "Boosts: (-5s from level timer)"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1062664275]
+z_index = -10
+offset_right = 1919.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.011764706, 0.011764706, 0.011764706, 0.60784316)
 
 [connection signal="pressed" from="HBoxContainer/speed_boost" to="." method="_on_speed_pressed"]
 [connection signal="pressed" from="HBoxContainer/jump_boost" to="." method="_on_jump_selected"]

@@ -32,7 +32,14 @@ var total_time: Array[int] = [
 
 var is_changing := false
 var time_taken := 0.0
-
+var level_stars := {}
+func stars_calc (time: float) -> int:
+	if time <= 5.0:
+		return 3
+	elif time <= 10.0:
+		return 2
+	else:
+		return 1
 func start_game() -> void:
 	change_scene(levels[0])
 
@@ -42,7 +49,9 @@ func go_to_next_level() -> void:
 		return
 	current_level += 1
 	if (current_level % levels.size()==0):
+		current_level = 0
 		change_scene("res://scenes/ending.tscn")
+		return
 	current_level = current_level % levels.size()
 	if is_changing:
 		return
@@ -50,8 +59,17 @@ func go_to_next_level() -> void:
 	await Transition.cover()
 	get_tree().call_deferred("change_scene_to_file", levels[current_level])
 	await get_tree().process_frame
-	await Showtime.show_text("Time taken: %.1f seconds" % time_taken, 1)
-	await Showtime.show_text("Level : " + str(current_level+1), 1.0)
+	var stars = stars_calc(time_taken)
+	var level_idx = current_level - 1
+	if not level_stars.has(level_idx) or stars > level_stars[level_idx]:
+		level_stars[level_idx] = stars
+	var stars_text = "⭐"
+	if stars == 3:
+		stars_text = "⭐⭐⭐"
+	elif stars == 2:
+		stars_text = "⭐⭐"
+		
+	await Showtime.show_text("Level %d\nTime: %.1fs  %s" % [current_level + 1, time_taken, stars_text], 1.8)
 	await Transition.reveal()
 	is_changing = false
 
