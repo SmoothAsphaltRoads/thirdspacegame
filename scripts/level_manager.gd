@@ -34,6 +34,7 @@ var is_changing := false
 var time_taken := 0.0
 var level_stars := {}
 const SAVE := "user://savegame.cfg"
+var music_player := AudioStreamPlayer.new()
 func stars_calc (time: float) -> int:
 	if time <= 5.0:
 		return 3
@@ -42,6 +43,7 @@ func stars_calc (time: float) -> int:
 	else:
 		return 1
 func start_game() -> void:
+	play_music()
 	change_scene(levels[0])
 func star_save () -> void:
 	var config := ConfigFile.new()
@@ -85,6 +87,7 @@ func go_to_next_level() -> void:
 func load_level(index : int) -> void:
 	if is_changing:
 		return
+	play_music()
 	current_level = index % levels.size()
 	change_scene(levels[current_level])
 	
@@ -100,9 +103,15 @@ func change_scene(path: String) -> void:
 	await get_tree().process_frame
 	await Transition.reveal()
 	is_changing = false
-
+func play_music() -> void:
+	if not (music_player.playing):
+		music_player.play()
+func stop_music() -> void:
+	music_player.stop()
 func _ready() -> void:
 	star_load()
-
+	music_player.stream = preload("res://assets/sounds/music.ogg")
+	music_player.bus = &"Music"
+	add_child (music_player)
 func _process(delta: float) -> void:
 	pass
