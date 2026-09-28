@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 
 func _on_button_pressed() -> void:
+	LevelManager.stop_music()
 	visible = false
 	get_tree().paused = false
 func _input(event:InputEvent) ->void :
@@ -23,6 +24,7 @@ func _input(event:InputEvent) ->void :
 
 
 func _on_quit_pressed() -> void:
+	LevelManager.stop_music()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
