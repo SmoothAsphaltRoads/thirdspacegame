@@ -93,6 +93,7 @@ func _physics_process(delta: float) -> void:
 	animated_sprite_2d.scale = animated_sprite_2d.scale.lerp(Vector2.ONE, 12.0*delta)
 	_check_enemy_collision()
 	_check_object_collision()
+	
 func use_shield() -> void:
 	if not has_shield or shield_active or is_dead:
 		return
@@ -144,23 +145,40 @@ func die() -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
 	death_sound.play(0.3)
-	animated_sprite_2d.play("Hit")
+
+	if (LevelManager.current_level <= 5):
+		animated_sprite_2d.play("hit1")
+	else:
+		animated_sprite_2d.play("hit2")
+	
 	await animated_sprite_2d.animation_finished
 	LevelManager.restart_level()
 
 
 func _update_animation(direction: float) -> void:
 	if not is_on_floor():
-		animated_sprite_2d.animation = "Jump"
+		
+		if (LevelManager.current_level <= 5):
+			animated_sprite_2d.animation = "jump1"
+		else:
+			animated_sprite_2d.animation = "jump2"
+			
 		dust_particles.emitting = false
 	elif absf(velocity.x) > 1.0:
-		animated_sprite_2d.animation = "Run"
+		if (LevelManager.current_level <= 5):
+			animated_sprite_2d.animation = "run1"
+		else:
+			animated_sprite_2d.animation = "run2"
 		dust_particles.emitting = true
 	else:
-		animated_sprite_2d.animation = "Idle"
+		if (LevelManager.current_level <= 5):
+			animated_sprite_2d.animation = "idle1"
+		else:
+			animated_sprite_2d.animation = "idle2"
 		dust_particles.emitting = false
 	if direction != 0.0:
 		animated_sprite_2d.flip_h = direction < 0.0
 		dust_particles.scale.x = -1.0 if direction <0.0 else 1.0
+		
 func _ready() -> void:
 	pass
