@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var goal_reach_sound: AudioStreamPlayer2D = $"Goal reach sound"
 @onready var goal_detector: Area2D = $GoalDetector
 @onready var dust_particles: CPUParticles2D = $DustParticles
+@onready var shield_indi: Label = $ShieldIndi
 
 const BASE_SPEED := 50.0
 const MAX_SPEED := 300.0
@@ -37,6 +38,10 @@ var is_invincible := false
 var is_dead := false
 var was_on_floor = true
 
+func grant_shield() -> void:
+	has_shield =true
+	shield_indi.text = "[E] SHIELD"
+	shield_indi.visible = true
 
 func _physics_process(delta: float) -> void:
 	if (Input.is_key_pressed(KEY_E) and has_shield and not shield_active):
@@ -95,10 +100,17 @@ func use_shield() -> void:
 	shield_active = true
 	is_invincible = true
 	modulate = Color(0.3, 0.8, 1.0, 0.8)
-	await get_tree().create_timer(1.0).timeout
+	
+	var time_left := 1.0
+	while time_left > 0 and is_invincible and not is_dead:
+		shield_indi.text = "%.1fs" % time_left
+		await get_tree().create_timer(0.1).timeout
+		time_left -=0.1
+	
 	is_invincible=false
 	shield_active=false
 	modulate = Color(1.0,1.0,1.0,1.0)
+	shield_indi.visible = false
 
 func _check_enemy_collision() -> void:
 	for i in get_slide_collision_count():
@@ -150,3 +162,5 @@ func _update_animation(direction: float) -> void:
 	if direction != 0.0:
 		animated_sprite_2d.flip_h = direction < 0.0
 		dust_particles.scale.x = -1.0 if direction <0.0 else 1.0
+func _ready() -> void:
+	pass
