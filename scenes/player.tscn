@@ -733,7 +733,7 @@ radius = 8.5
 height = 30.66667
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6eo5"]
-size = Vector2(20.833334, 31.333334)
+size = Vector2(20, 31.333334)
 
 [node name="Player" type="CharacterBody2D" unique_id=191484152 groups=["player"]]
 scale = Vector2(3, 3)
@@ -741,6 +741,8 @@ script = ExtResource("1_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=699046124]
 texture_filter = 1
+position = Vector2(0, 0.33333302)
+scale = Vector2(1, 0.9791667)
 sprite_frames = SubResource("SpriteFrames_71sry")
 animation = &"hit2"
 autoplay = "Idle"
@@ -760,7 +762,7 @@ stream = ExtResource("8_smehm")
 [node name="GoalDetector" type="Area2D" parent="." unique_id=816400694]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector" unique_id=1949617933]
-position = Vector2(0, 0.3333335)
+position = Vector2(4.7683716e-07, 0.3333335)
 shape = SubResource("RectangleShape2D_y6eo5")
 
 [node name="DustParticles" type="CPUParticles2D" parent="." unique_id=1846408331]
