@@ -23,8 +23,6 @@ var SPEED_MULTIPLIER := 1.0
 var JUMP_MULTIPLIER := 1.0
 var has_shield := false
 var shield_active := false
-const max_jumps :=2
-var jumps_left := max_jumps
 var speed_multiplier: float:
 	get:
 		return SPEED_MULTIPLIER
@@ -37,7 +35,7 @@ var jump_multiplier: float:
 		JUMP_MULTIPLIER = value
 var is_invincible := false
 var is_dead := false
-
+var was_on_floor = true
 
 
 func _physics_process(delta: float) -> void:
@@ -50,11 +48,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		velocity.y = minf(velocity.y, 1200.0)
 		COYOTE_TIMER -= delta
-		if COYOTE_TIMER <=0.0 and jumps_left == max_jumps:
-			jumps_left = max_jumps-1
 	else:
 		COYOTE_TIMER = COYOTE_TIME
-		jumps_left = max_jumps
 
 	if Input.is_action_just_pressed("jump"):
 		JUMP_BUFFER_TIMER = JUMP_BUFFER_TIME
@@ -71,14 +66,8 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_HEIGHT * JUMP_MULTIPLIER
 			COYOTE_TIMER = 0.0
 			JUMP_BUFFER_TIMER = 0.0
-			jumps_left = max_jumps-1
 			jump_sound.play()
-		elif jumps_left>0:
-			velocity.y = JUMP_HEIGHT * jump_multiplier
-			jumps_left -=1
-			JUMP_BUFFER_TIMER=0.0
-			jump_sound.play()
-
+			animated_sprite_2d.scale = Vector2(0.75, 1.3)
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = max(velocity.y * CUT_MULTIPLIER, MIN_JUMP_HEIGHT)
 
@@ -93,6 +82,10 @@ func _physics_process(delta: float) -> void:
 	
 	_update_animation(direction)
 	move_and_slide()
+	if not was_on_floor and is_on_floor():
+		animated_sprite_2d.scale = Vector2(1.3, 0.7)
+	was_on_floor = is_on_floor()
+	animated_sprite_2d.scale = animated_sprite_2d.scale.lerp(Vector2.ONE, 12.0*delta)
 	_check_enemy_collision()
 	_check_object_collision()
 func use_shield() -> void:
@@ -102,7 +95,7 @@ func use_shield() -> void:
 	shield_active = true
 	is_invincible = true
 	modulate = Color(0.3, 0.8, 1.0, 0.8)
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	is_invincible=false
 	shield_active=false
 	modulate = Color(1.0,1.0,1.0,1.0)
