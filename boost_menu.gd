@@ -39,7 +39,9 @@ func _on_jump_selected() -> void:
 
 func _on_shield_selected() -> void:
 	var player = get_tree().get_first_node_in_group("player")
+
 	if player:
 		player.has_shield = true
+	player.grant_shield()
 	_deduct_penalty()
 	_start_game()

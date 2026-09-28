@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dtwyq08ocea3x" path="res://assets/sounds/jump.wav" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://byvd342jr2ryf" path="res://assets/sounds/death.wav" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://ddios53r3krwa" path="res://assets/sounds/collect_apple.wav" id="8_smehm"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="9_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("1_3vyb7")
@@ -293,3 +294,14 @@ initial_velocity_max = 60.0
 scale_amount_min = 2.0
 scale_amount_max = 3.5
 color = Color(1, 1, 1, 0.6)
+
+[node name="ShieldIndi" type="Label" parent="." unique_id=103620208]
+texture_filter = 1
+offset_left = -17.666668
+offset_top = -23.666666
+offset_right = 17.333332
+offset_bottom = -15.666666
+theme_override_colors/font_color = Color(0, 0.86994743, 0.87454873, 1)
+theme_override_fonts/font = ExtResource("9_ur7pv")
+theme_override_font_sizes/font_size = 8
+text = "[E] Shield"
