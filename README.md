@@ -6,7 +6,7 @@ Third Space is a platformer which combines powerups from MMOs type games and imp
 Currently, powerups are WIP however our vision is to make it cost some amount of your time in a level. ex- You buy a speed boost for 5s, so you have to complete the level in 5s lesser time. This causes a callenge and penalty for users using powerups.
 # Features
 ## Currently Live:
-* Levels 1 through 11
+* Levels 1 through 10
 * Movement with resistance and physics
 * Fruits for checkpoints (They are a random fruit every time you enter !)
 * Enemy with player tracking
@@ -15,13 +15,12 @@ Currently, powerups are WIP however our vision is to make it cost some amount of
 * a basic countdown timer to track time spent on level
 * a basic options panel with volume control and full screen toggle
 * pause menu
+* powerups such as a shield of 1s (summoned at any time), 30% jump increase and a 25% speed increase
+* shield indicator on top of a player showing press [e] to activate and then when activated shows the duration left
+* a star mechanism which saves it in local storage so that it will be the same when u log back in
+* also: most of the art (including player, enemies, background art) is completely custom made by us!
 ## WIP
 * Powerup mechnanics
 * Levels 12-20
-* a star system (rating performance based on time taken)
-  # Screenshots
-  
-  <img width="1258" height="708" alt="image" src="https://github.com/user-attachments/assets/9308caf6-acff-4b48-a25a-1a7424d18943" />
-  <img width="1247" height="662" alt="image" src="https://github.com/user-attachments/assets/e7aac11e-f6d0-4e1e-8f6d-6115a7cd669a" />
-<img width="1218" height="684" alt="image" src="https://github.com/user-attachments/assets/95253421-73bb-4b0a-b915-c552855dbcf9" />
-<img width="1244" height="742" alt="image" src="https://github.com/user-attachments/assets/46ace29b-deab-4005-8aa0-dfcd16800401" />
+# Screenshots
+
