@@ -89,6 +89,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if not was_on_floor and is_on_floor():
 		animated_sprite_2d.scale = Vector2(1.3, 0.7)
+		dust_particles.restart()
 	was_on_floor = is_on_floor()
 	animated_sprite_2d.scale = animated_sprite_2d.scale.lerp(Vector2.ONE, 12.0*delta)
 	_check_enemy_collision()
@@ -134,6 +135,10 @@ func _check_object_collision() -> void:
 			return
 		if area.is_in_group("boost"):
 			velocity.y = BOOST_HEIGHT
+			animated_sprite_2d.scale = Vector2(0.55, 1.5)
+			jump_sound.pitch_scale = 1.4
+			jump_sound.play()
+			get_tree().create_timer(0.2).timeout.connect(func(): jump_sound.pitch_scale=1.0)
 			return
 
 func die() -> void:
