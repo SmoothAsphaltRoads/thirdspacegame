@@ -33,6 +33,7 @@ var total_time: Array[int] = [
 var is_changing := false
 var time_taken := 0.0
 var level_stars := {}
+const SAVE := "user://savegame.cfg"
 func stars_calc (time: float) -> int:
 	if time <= 5.0:
 		return 3
@@ -42,7 +43,14 @@ func stars_calc (time: float) -> int:
 		return 1
 func start_game() -> void:
 	change_scene(levels[0])
-
+func star_save () -> void:
+	var config := ConfigFile.new()
+	config.set_value("data", "stars", level_stars)
+	config.save(SAVE)
+func star_load () -> void:
+	var config := ConfigFile.new()
+	if config.load(SAVE) == OK:
+		level_stars = config.get_value("data", "stars", {})
 var current_level := 0
 func go_to_next_level() -> void:
 	if is_changing:
@@ -63,6 +71,7 @@ func go_to_next_level() -> void:
 	var level_idx = current_level - 1
 	if not level_stars.has(level_idx) or stars > level_stars[level_idx]:
 		level_stars[level_idx] = stars
+		star_save()
 	var stars_text = "⭐"
 	if stars == 3:
 		stars_text = "⭐⭐⭐"
@@ -93,7 +102,7 @@ func change_scene(path: String) -> void:
 	is_changing = false
 
 func _ready() -> void:
-	pass
+	star_load()
 
 func _process(delta: float) -> void:
 	pass
