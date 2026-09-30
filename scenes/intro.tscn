@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cq8mu2vxsvb8s"]
+
+[ext_resource type="Script" uid="uid://vtnvxcuketji" path="res://scripts/intro.gd" id="1_ioskq"]
+
+[node name="Intro" type="CanvasLayer" unique_id=1928499742]
+layer = 10
+script = ExtResource("1_ioskq")
+
+[node name="top" type="ColorRect" parent="." unique_id=1100910725]
+offset_right = 1920.0
+color = Color(0, 0, 0, 1)
+
+[node name="bottom" type="ColorRect" parent="." unique_id=322019402]
+offset_top = 1080.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="Label" parent="." unique_id=237830934]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -800.0
+offset_top = -102.0
+offset_right = 800.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="skip" type="HBoxContainer" parent="." unique_id=708039937]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -468.0
+offset_top = 36.0
+offset_right = -36.0
+offset_bottom = 72.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="skip" unique_id=1442141207]
+layout_mode = 2
+text = "Hold escape to skip"
+
+[node name="Bar" type="ColorRect" parent="skip" unique_id=593423138]
+custom_minimum_size = Vector2(120, 18)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.105882354, 0.05882353, 0.11764706, 1)
+
+[node name="fill" type="ColorRect" parent="skip/Bar" unique_id=1359635935]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 15.0
