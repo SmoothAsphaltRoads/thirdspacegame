@@ -778,6 +778,7 @@ scale_amount_max = 3.5
 color = Color(1, 1, 1, 0.6)
 
 [node name="ShieldIndi" type="Label" parent="." unique_id=103620208]
+visible = false
 texture_filter = 1
 offset_left = -17.666668
 offset_top = -23.666666

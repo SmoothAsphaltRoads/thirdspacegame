@@ -186,4 +186,4 @@ func _update_animation(direction: float) -> void:
 		dust_particles.scale.x = -1.0 if direction <0.0 else 1.0
 		
 func _ready() -> void:
-	pass
+	shield_indi.visible = false
