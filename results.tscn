@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://cg5c8g6ww6b0"]
+
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="1_5erdf"]
+[ext_resource type="Texture2D" uid="uid://dfkdbqls3iyhg" path="res://assets/ui/icon_star.png" id="2_e1an3"]
+[ext_resource type="Texture2D" uid="uid://dt3rtapatjks2" path="res://assets/ui/icon_skull.png" id="3_ph8o5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gynv"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0.08627451, 0.07450981, 0.10980392, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.5921569, 0.45882353, 0.6509804, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lmbc"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.05882353, 0.043137256, 0.078431375, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17254902, 0.10980392, 0.21176471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgydm"]
+bg_color = Color(0.21176471, 0.14117648, 0.26666668, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6156863, 0.43137255, 0.65882355, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Results" type="CanvasLayer" unique_id=657939708]
+process_mode = 3
+layer = 20
+
+[node name="Dim" type="ColorRect" parent="." unique_id=433341586]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882354, 0.05882353, 0.11764706, 0.72156864)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1721910211]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -285.0
+offset_right = 390.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gynv")
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1450428899]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Clear" type="Label" parent="Panel/VBox" unique_id=1987581416]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.81960785, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0.07058824, 0.047058824, 0.09411765, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 64
+text = "CLEAR!"
+horizontal_alignment = 1
+
+[node name="Tag" type="Label" parent="Panel/VBox" unique_id=1010193102]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5921569, 0.45882353, 0.6509804, 1)
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 48
+text = "idk"
+horizontal_alignment = 1
+
+[node name="Stars" type="HBoxContainer" parent="Panel/VBox" unique_id=886851133]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="s1" type="VBoxContainer" parent="Panel/VBox/Stars" unique_id=753757227]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Panel/VBox/Stars/s1" unique_id=1980507684]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_e1an3")
+stretch_mode = 5
+
+[node name="Par" type="Label" parent="Panel/VBox/Stars/s1" unique_id=513764878]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 32
+text = "finish"
+horizontal_alignment = 1
+
+[node name="s2" type="VBoxContainer" parent="Panel/VBox/Stars" unique_id=1570663917]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Panel/VBox/Stars/s2" unique_id=40360710]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_e1an3")
+stretch_mode = 5
+
+[node name="Par" type="Label" parent="Panel/VBox/Stars/s2" unique_id=1396221289]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 32
+text = "< 10.0s"
+horizontal_alignment = 1
+
+[node name="s3" type="VBoxContainer" parent="Panel/VBox/Stars" unique_id=1351827693]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Panel/VBox/Stars/s3" unique_id=1343002421]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_e1an3")
+stretch_mode = 5
+
+[node name="Par" type="Label" parent="Panel/VBox/Stars/s3" unique_id=2142439420]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 32
+text = "<5.0s"
+horizontal_alignment = 1
+
+[node name="Extra" type="Label" parent="Panel/VBox" unique_id=1807527444]
+layout_mode = 2
+
+[node name="Card" type="PanelContainer" parent="Panel/VBox" unique_id=853692100]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6lmbc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBox/Card" unique_id=1390561563]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Time" type="HBoxContainer" parent="Panel/VBox/Card/VBoxContainer" unique_id=941697451]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBox/Card/VBoxContainer/Time" unique_id=1159739078]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 32
+text = "time"
+
+[node name="Value" type="Label" parent="Panel/VBox/Card/VBoxContainer/Time" unique_id=1110786621]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 48
+text = "0.00s"
+
+[node name="Best" type="Label" parent="Panel/VBox/Card/VBoxContainer" unique_id=637092859]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5921569, 0.45882353, 0.6509804, 1)
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 24
+text = "best 0.00s"
+horizontal_alignment = 1
+
+[node name="Death" type="HBoxContainer" parent="Panel/VBox/Card/VBoxContainer" unique_id=1379748210]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Panel/VBox/Card/VBoxContainer/Death" unique_id=466965386]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_ph8o5")
+
+[node name="Value" type="Label" parent="Panel/VBox/Card/VBoxContainer/Death" unique_id=449648113]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/VBox" unique_id=996033977]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Next" type="Button" parent="Panel/VBox/Buttons" unique_id=1557802341]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_rgydm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rgydm")
+text = "Next"
+
+[node name="Retry" type="Button" parent="Panel/VBox/Buttons" unique_id=322587580]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_rgydm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rgydm")
+text = "Retry"
+
+[node name="Levels" type="Button" parent="Panel/VBox/Buttons" unique_id=1284079813]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_rgydm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rgydm")
+text = "Levels"
