@@ -1,19 +1,134 @@
 [gd_scene format=3 uid="uid://d0dcjjhj8lyla"]
 
 [ext_resource type="Script" uid="uid://c61syw1i6lgbb" path="res://scripts/timer.gd" id="1_srplv"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="2_bi5oq"]
+[ext_resource type="Texture2D" uid="uid://0hgctuutnsf6" path="res://assets/ui/icon_clock.png" id="3_uktcg"]
+[ext_resource type="Texture2D" uid="uid://dfkdbqls3iyhg" path="res://assets/ui/icon_star.png" id="4_qso1l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgydm"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.08627451, 0.07450981, 0.10980392, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.32156864, 0.23137255, 0.36078432, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.6666667)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gynv"]
+bg_color = Color(0.9490196, 0.6509804, 0.3529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.13333334, 0.13333334, 0.2)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="Timer" type="CanvasLayer" unique_id=1629730102 groups=["level_timer"]]
 script = ExtResource("1_srplv")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=113203982]
-position = Vector2(0.34224513, 1.1408447)
-scale = Vector2(1.3422451, 1.5704226)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(151, -2, 0, 140, -1, -1)
+[node name="Panel" type="PanelContainer" parent="." unique_id=1041558534]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 408.0
+offset_bottom = 119.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgydm")
 
-[node name="Label" type="Label" parent="." unique_id=300739331]
-offset_right = 199.0
-offset_bottom = 220.68094
-offset_transform_enabled = true
-offset_transform_position = Vector2(30, 30)
-theme_override_font_sizes/font_size = 40
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=709806966]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Top" type="HBoxContainer" parent="Panel/VBox" unique_id=793480407]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Tag" type="Label" parent="Panel/VBox/Top" unique_id=1211786781]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.69803923, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.039215688, 0.078431375, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_bi5oq")
+text = "idk"
+
+[node name="Name" type="Label" parent="Panel/VBox/Top" unique_id=141560305]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.64705884, 0.5803922, 0.69803923, 1)
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.039215688, 0.078431375, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_bi5oq")
+theme_override_font_sizes/font_size = 18
+text = "Level Name"
+
+[node name="Row" type="HBoxContainer" parent="Panel/VBox" unique_id=1066542848]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Clock" type="TextureRect" parent="Panel/VBox/Row" unique_id=166796418]
+texture_filter = 1
+custom_minimum_size = Vector2(39, 39)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_uktcg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Time" type="Label" parent="Panel/VBox/Row" unique_id=152809846]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.95686275, 0.91764706, 1)
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.039215688, 0.078431375, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_bi5oq")
+theme_override_font_sizes/font_size = 48
+text = "0:20"
+
+[node name="Rank" type="HBoxContainer" parent="Panel/VBox/Row" unique_id=130400127]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="Star1" type="TextureRect" parent="Panel/VBox/Row/Rank" unique_id=1676211764]
+texture_filter = 1
+custom_minimum_size = Vector2(27, 24)
+layout_mode = 2
+texture = ExtResource("4_qso1l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star2" type="TextureRect" parent="Panel/VBox/Row/Rank" unique_id=1092568005]
+texture_filter = 1
+custom_minimum_size = Vector2(27, 24)
+layout_mode = 2
+texture = ExtResource("4_qso1l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star3" type="TextureRect" parent="Panel/VBox/Row/Rank" unique_id=48852663]
+texture_filter = 1
+custom_minimum_size = Vector2(27, 24)
+layout_mode = 2
+texture = ExtResource("4_qso1l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bar" type="ProgressBar" parent="Panel/VBox" unique_id=1573363767]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6gynv")
+show_percentage = false
