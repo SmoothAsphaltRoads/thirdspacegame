@@ -33,6 +33,7 @@ var total_time: Array[int] = [
 var is_changing := false
 var time_taken := 0.0
 var level_stars := {}
+var best_times := {}
 const SAVE := "user://savegame.cfg"
 var music_player := AudioStreamPlayer.new()
 func stars_calc (time: float) -> int:
@@ -48,11 +49,13 @@ func start_game() -> void:
 func star_save () -> void:
 	var config := ConfigFile.new()
 	config.set_value("data", "stars", level_stars)
+	config.set_value("data", "best", best_times)
 	config.save(SAVE)
 func star_load () -> void:
 	var config := ConfigFile.new()
 	if config.load(SAVE) == OK:
 		level_stars = config.get_value("data", "stars", {})
+		best_times = config.get_value("data", "best", {})
 var current_level := 0
 func go_to_next_level() -> void:
 	if is_changing:

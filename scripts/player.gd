@@ -37,7 +37,6 @@ var jump_multiplier: float:
 var is_invincible := false
 var is_dead := false
 var was_on_floor = true
-
 func grant_shield() -> void:
 	has_shield =true
 	shield_indi.text = "[E] SHIELD"
@@ -128,8 +127,12 @@ func _check_object_collision() -> void:
 		if area.is_in_group("endGoal"):
 			goal_reach_sound.play()
 			var timer := get_tree().current_scene.get_node("Timer")
-			LevelManager.time_taken = timer.time_elapse
-			await LevelManager.go_to_next_level()
+			var time = timer.time_elapse if timer else 0.0
+			LevelManager.time_taken = time
+			
+			var results = preload("res://scenes/results.tscn").instantiate()
+			get_tree().current_scene.add_child(results)
+			results.setup(LevelManager.current_level, time)
 			return
 		if area.is_in_group("trap"):
 			die()
@@ -162,7 +165,6 @@ func die() -> void:
 
 func _update_animation(direction: float) -> void:
 	if not is_on_floor():
-		
 		if (LevelManager.current_level <= 5):
 			animated_sprite_2d.animation = "jump1"
 		else:

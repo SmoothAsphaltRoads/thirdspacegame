@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cg5c8g6ww6b0"]
 
-[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="1_5erdf"]
-[ext_resource type="Texture2D" uid="uid://dfkdbqls3iyhg" path="res://assets/ui/icon_star.png" id="2_e1an3"]
-[ext_resource type="Texture2D" uid="uid://dt3rtapatjks2" path="res://assets/ui/icon_skull.png" id="3_ph8o5"]
+[ext_resource type="Script" uid="uid://bvqfqcxje4rpk" path="res://scripts/results.gd" id="1_s58my"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="2_w6ibn"]
+[ext_resource type="Texture2D" uid="uid://dfkdbqls3iyhg" path="res://assets/ui/icon_star.png" id="3_ph3j5"]
+[ext_resource type="Texture2D" uid="uid://dt3rtapatjks2" path="res://assets/ui/icon_skull.png" id="4_2q2pa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gynv"]
 content_margin_left = 30.0
@@ -51,6 +52,7 @@ corner_radius_bottom_left = 4
 [node name="Results" type="CanvasLayer" unique_id=657939708]
 process_mode = 3
 layer = 20
+script = ExtResource("1_s58my")
 
 [node name="Dim" type="ColorRect" parent="." unique_id=433341586]
 anchors_preset = 15
@@ -84,7 +86,7 @@ theme_override_colors/font_color = Color(1, 0.81960785, 0.4, 1)
 theme_override_colors/font_shadow_color = Color(0.07058824, 0.047058824, 0.09411765, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 64
 text = "CLEAR!"
 horizontal_alignment = 1
@@ -92,7 +94,7 @@ horizontal_alignment = 1
 [node name="Tag" type="Label" parent="Panel/VBox" unique_id=1010193102]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5921569, 0.45882353, 0.6509804, 1)
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 48
 text = "idk"
 horizontal_alignment = 1
@@ -106,14 +108,16 @@ alignment = 1
 layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Panel/VBox/Stars/s1" unique_id=1980507684]
+modulate = Color(0.2, 0.2, 0.2, 0.5019608)
+texture_filter = 1
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("2_e1an3")
+texture = ExtResource("3_ph3j5")
 stretch_mode = 5
 
 [node name="Par" type="Label" parent="Panel/VBox/Stars/s1" unique_id=513764878]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 32
 text = "finish"
 horizontal_alignment = 1
@@ -121,15 +125,17 @@ horizontal_alignment = 1
 [node name="s2" type="VBoxContainer" parent="Panel/VBox/Stars" unique_id=1570663917]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="Panel/VBox/Stars/s2" unique_id=40360710]
+[node name="Icon2" type="TextureRect" parent="Panel/VBox/Stars/s2" unique_id=40360710]
+modulate = Color(0.2, 0.2, 0.2, 0.5019608)
+texture_filter = 1
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("2_e1an3")
+texture = ExtResource("3_ph3j5")
 stretch_mode = 5
 
 [node name="Par" type="Label" parent="Panel/VBox/Stars/s2" unique_id=1396221289]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 32
 text = "< 10.0s"
 horizontal_alignment = 1
@@ -137,21 +143,20 @@ horizontal_alignment = 1
 [node name="s3" type="VBoxContainer" parent="Panel/VBox/Stars" unique_id=1351827693]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="Panel/VBox/Stars/s3" unique_id=1343002421]
+[node name="Icon3" type="TextureRect" parent="Panel/VBox/Stars/s3" unique_id=1343002421]
+modulate = Color(0.2, 0.2, 0.2, 0.5019608)
+texture_filter = 1
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("2_e1an3")
+texture = ExtResource("3_ph3j5")
 stretch_mode = 5
 
 [node name="Par" type="Label" parent="Panel/VBox/Stars/s3" unique_id=2142439420]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 32
 text = "<5.0s"
 horizontal_alignment = 1
-
-[node name="Extra" type="Label" parent="Panel/VBox" unique_id=1807527444]
-layout_mode = 2
 
 [node name="Card" type="PanelContainer" parent="Panel/VBox" unique_id=853692100]
 layout_mode = 2
@@ -169,20 +174,20 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/VBox/Card/VBoxContainer/Time" unique_id=1159739078]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 32
 text = "time"
 
 [node name="Value" type="Label" parent="Panel/VBox/Card/VBoxContainer/Time" unique_id=1110786621]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 48
 text = "0.00s"
 
 [node name="Best" type="Label" parent="Panel/VBox/Card/VBoxContainer" unique_id=637092859]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5921569, 0.45882353, 0.6509804, 1)
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 24
 text = "best 0.00s"
 horizontal_alignment = 1
@@ -195,11 +200,11 @@ alignment = 1
 [node name="Icon" type="TextureRect" parent="Panel/VBox/Card/VBoxContainer/Death" unique_id=466965386]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("3_ph8o5")
+texture = ExtResource("4_2q2pa")
 
 [node name="Value" type="Label" parent="Panel/VBox/Card/VBoxContainer/Death" unique_id=449648113]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 24
 text = "0"
 
@@ -211,7 +216,7 @@ alignment = 1
 [node name="Next" type="Button" parent="Panel/VBox/Buttons" unique_id=1557802341]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_rgydm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rgydm")
@@ -220,7 +225,7 @@ text = "Next"
 [node name="Retry" type="Button" parent="Panel/VBox/Buttons" unique_id=322587580]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_rgydm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rgydm")
@@ -229,8 +234,12 @@ text = "Retry"
 [node name="Levels" type="Button" parent="Panel/VBox/Buttons" unique_id=1284079813]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_5erdf")
+theme_override_fonts/font = ExtResource("2_w6ibn")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_rgydm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rgydm")
 text = "Levels"
+
+[connection signal="pressed" from="Panel/VBox/Buttons/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Panel/VBox/Buttons/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Panel/VBox/Buttons/Levels" to="." method="_on_levels_pressed"]
