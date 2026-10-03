@@ -31,6 +31,7 @@ var air_jumps := 0
 var dash_ready := false
 var dash_timer :=0.0
 var facing := 1.0
+var shift_was_down := false
 var speed_multiplier: float:
 	get:
 		return SPEED_MULTIPLIER
@@ -94,18 +95,27 @@ func _physics_process(delta: float) -> void:
 	
 		
 	var direction := Input.get_axis("left", "right")
-	if direction!=0.0:
-		facing = signf(direction)
-	if can_dash and dash_ready and (Input.is_key_pressed(KEY_SHIFT)) :
-		dash_ready = false
-		dash_timer = 0.16
-	if dash_timer >0.0:
-		dash_timer -=delta
-		velocity = Vector2(facing*950.0, 0.0)
 	if direction != 0.0:
+		facing = signf(direction)
+
+	var shift_down := Input.is_key_pressed(KEY_SHIFT)
+	var dash_just_pressed := shift_down and not shift_was_down
+	shift_was_down = shift_down
+
+	if can_dash and dash_ready and dash_just_pressed:
+		dash_ready = false
+		dash_timer = 0.14
+
+	if dash_timer > 0.0:
+		dash_timer -= delta
+		velocity.x = facing * 700.0
+		velocity.y = 0.0
+		if dash_timer <= 0.0:
+			velocity.x = facing * (MAX_SPEED * SPEED_MULTIPLIER)
+	elif direction != 0.0:
 		if absf(velocity.x) < BASE_SPEED:
 			velocity.x = direction * BASE_SPEED
-		velocity.x = move_toward(velocity.x, direction * (MAX_SPEED*SPEED_MULTIPLIER), ACCELERATION * delta)
+		velocity.x = move_toward(velocity.x, direction * (MAX_SPEED * SPEED_MULTIPLIER), ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
 	
