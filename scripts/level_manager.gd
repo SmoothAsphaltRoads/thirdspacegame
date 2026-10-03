@@ -34,6 +34,7 @@ var is_changing := false
 var time_taken := 0.0
 var level_stars := {}
 var best_times := {}
+var level_deaths := 0
 const SAVE := "user://savegame.cfg"
 var music_player := AudioStreamPlayer.new()
 func stars_calc (time: float) -> int:
@@ -61,6 +62,7 @@ func go_to_next_level() -> void:
 	if is_changing:
 		return
 	current_level += 1
+	level_deaths = 0
 	if (current_level % levels.size()==0):
 		current_level = 0
 		change_scene("res://scenes/ending.tscn")

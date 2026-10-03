@@ -158,6 +158,8 @@ func die() -> void:
 		animated_sprite_2d.play("hit1")
 	else:
 		animated_sprite_2d.play("hit2")
+	LevelManager.level_deaths += 1
+	
 	
 	await animated_sprite_2d.animation_finished
 	LevelManager.restart_level()

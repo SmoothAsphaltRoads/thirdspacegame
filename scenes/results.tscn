@@ -198,6 +198,7 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Icon" type="TextureRect" parent="Panel/VBox/Card/VBoxContainer/Death" unique_id=466965386]
+texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("4_2q2pa")
@@ -205,8 +206,9 @@ texture = ExtResource("4_2q2pa")
 [node name="Value" type="Label" parent="Panel/VBox/Card/VBoxContainer/Death" unique_id=449648113]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_w6ibn")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 text = "0"
+vertical_alignment = 1
 
 [node name="Buttons" type="HBoxContainer" parent="Panel/VBox" unique_id=996033977]
 layout_mode = 2

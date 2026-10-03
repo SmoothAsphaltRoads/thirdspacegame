@@ -3,20 +3,12 @@ extends CanvasLayer
 @onready var value: Label = $Panel/VBox/Card/VBoxContainer/Time/Value
 @onready var bestlabel : Label = $Panel/VBox/Card/VBoxContainer/Best
 @onready var stars = [$Panel/VBox/Stars/s1/Icon, $Panel/VBox/Stars/s2/Icon2,$Panel/VBox/Stars/s3/Icon3]
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@onready var deathvalue: Label = $Panel/VBox/Card/VBoxContainer/Death/Value
 
 func setup (idx: int, t:float) -> void:
 	tag.text = "Level %d" % (idx+1)
 	value.text = "%.2fs" % t
+	deathvalue.text = str(LevelManager.level_deaths)
 	
 	var best = LevelManager.best_times.get(idx, INF) if "best_times" in LevelManager else INF
 	if (t<best) and "best_times" in LevelManager:
