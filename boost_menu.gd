@@ -1,47 +1,60 @@
 extends CanvasLayer
+const boosts = {
+	"speed":{
+		"cost" : 5.0,
+		"card" : preload("res://assets/ui/powerup-speed.png")
+	},
+	"jump":{
+		"cost":4.0,
+		"card": preload("res://assets/ui/powerup-jump.png")
+	},
+	"shield":{
+		"cost"=5.0,
+		"card" = preload("res://assets/ui/powerup-shield.png")
+	},
+	"glide":{
+		"cost" :3.0,
+		"card": preload("res://assets/ui/featherpixart.jpg")
+	},
+	"double_jump":{
+		"cost" = 6.0,
+		"card" = preload("res://assets/ui/springpixart.webp")
+	},
+	"dash":{
+		"cost" = 5.0,
+		"card" =preload("res://assets/ui/dashpixart.jpg")
+	}
+}
+@onready var cards = [$Cards/Card1,$Cards/Card2,$Cards/Card3]
+@onready var start: Button = $Bottom/start
 
-@onready var speed_boost: Button = $HBoxContainer/speed_boost
-@onready var jump_boost: Button = $HBoxContainer/jump_boost
-@onready var shield_button: Button = $HBoxContainer/shield_button
-@onready var start_button: Button = get_node_or_null("start")
-const penalty := 5.0
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
-	get_tree().paused = true
-		
-func _deduct_penalty() -> void:
+	get_tree().paused=true
+	var keys = boosts.keys()
+	keys.shuffle()
+	var picked = keys.slice (0,3)
+	
+	for i in 3:
+		var id = picked[i]
+		var data = boosts[id]
+		var card = cards[i]
+		card.texture_normal = data.card
+		card.pressed.connect(_choose.bind(id, data.cost))
+		card.mouse_entered.connect(func():
+			var tw = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			tw.tween_property(card, "scale", Vector2(1.06, 1.06),0.15))
+		card.mouse_exited.connect(func():
+			var tw = create_tween()
+			tw.tween_property(card, "scale", Vector2.ONE, 0.1))
+
+func _choose (id:String, cost:float) -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	if player and player.has_method("apply_upgrade"):
+		player.apply_upgrade(id)
 	var timer = get_tree().get_first_node_in_group("level_timer")
 	if timer:
-		timer.reduce_time(penalty)
-
-func _start_game() -> void:
-
+		timer.reduce_time(cost)
+	_close()
+func _close() -> void:
 	get_tree().paused = false
 	queue_free()
-
-func _on_start_pressed() -> void:
-
-	_start_game()
-
-func _on_speed_pressed() -> void:
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-			player.speed_multiplier = 1.25
-	_deduct_penalty()
-	_start_game()
-
-func _on_jump_selected() -> void:
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-			player.jump_multiplier = 1.3
-	_deduct_penalty()
-	_start_game()
-
-func _on_shield_selected() -> void:
-	var player = get_tree().get_first_node_in_group("player")
-
-	if player:
-		player.has_shield = true
-	player.grant_shield()
-	_deduct_penalty()
-	_start_game()

@@ -7,78 +7,80 @@
 process_mode = 3
 script = ExtResource("1_7efx1")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=824616069]
+[node name="Dim" type="ColorRect" parent="." unique_id=959589063]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.050980393, 0.101960786, 0.8784314)
+
+[node name="header" type="VBoxContainer" parent="." unique_id=997472661]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -600.0
+offset_top = 80.0
+offset_right = 600.0
+offset_bottom = 220.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="header" unique_id=687594988]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.81960785, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_dtwps")
+theme_override_font_sizes/font_size = 64
+text = "PICK A BOOST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sub" type="Label" parent="header" unique_id=1763731662]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5921569, 0.45882353, 0.6509804, 1)
+theme_override_fonts/font = ExtResource("2_dtwps")
+theme_override_font_sizes/font_size = 28
+text = "boosts can provide a advantage in the level, for a cost..."
+horizontal_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="." unique_id=675532990]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -464.0
-offset_top = -228.0
-offset_right = 445.0
-offset_bottom = 143.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
+theme_override_constants/separation = 40
+alignment = 1
 
-[node name="speed_boost" type="Button" parent="HBoxContainer" unique_id=2095494948]
+[node name="Card1" type="TextureButton" parent="Cards" unique_id=1989830327]
+custom_minimum_size = Vector2(350, 410)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_dtwps")
-theme_override_font_sizes/font_size = 48
-text = "Speed Boost
+stretch_mode = 5
 
-+25% Speed"
-autowrap_trim_flags = 0
-
-[node name="jump_boost" type="Button" parent="HBoxContainer" unique_id=1423047711]
+[node name="Card2" type="TextureButton" parent="Cards" unique_id=924626498]
+custom_minimum_size = Vector2(350, 410)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_dtwps")
-theme_override_font_sizes/font_size = 48
-text = "High Jump
+stretch_mode = 5
 
-+30% Jump"
-autowrap_trim_flags = 0
-
-[node name="shield_button" type="Button" parent="HBoxContainer" unique_id=91380428]
+[node name="Card3" type="TextureButton" parent="Cards" unique_id=1983141180]
+custom_minimum_size = Vector2(350, 410)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_dtwps")
-theme_override_font_sizes/font_size = 48
-text = "Shield
+stretch_mode = 5
 
-Invincibility
-for 3s
+[node name="Bottom" type="HBoxContainer" parent="." unique_id=75777655]
+offset_right = 40.0
+offset_bottom = 40.0
 
-E to start"
-autowrap_trim_flags = 0
+[node name="start" type="Button" parent="Bottom" unique_id=606900818]
+layout_mode = 2
 
-[node name="start" type="Button" parent="." unique_id=396382606]
-offset_left = 779.0
-offset_top = 798.0
-offset_right = 1155.0
-offset_bottom = 886.0
-theme_override_fonts/font = ExtResource("2_dtwps")
-theme_override_font_sizes/font_size = 48
-text = "No boosts"
-
-[node name="Label" type="Label" parent="." unique_id=247216835]
-offset_left = 523.0
-offset_top = 119.0
-offset_right = 1390.0
-offset_bottom = 200.0
-theme_override_fonts/font = ExtResource("2_dtwps")
-theme_override_font_sizes/font_size = 60
-text = "Boosts: (-5s from level timer)"
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1062664275]
-z_index = -10
-offset_right = 1919.0
-offset_bottom = 1080.0
-mouse_filter = 2
-color = Color(0.011764706, 0.011764706, 0.011764706, 0.60784316)
-
-[connection signal="pressed" from="HBoxContainer/speed_boost" to="." method="_on_speed_pressed"]
-[connection signal="pressed" from="HBoxContainer/jump_boost" to="." method="_on_jump_selected"]
-[connection signal="pressed" from="HBoxContainer/shield_button" to="." method="_on_shield_selected"]
-[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Bottom/start" to="." method="_close"]
