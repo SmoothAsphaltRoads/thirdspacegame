@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bprqw6ienfujp"]
+[gd_scene format=3 uid="uid://cs61fxxgb0sm6"]
 
 [ext_resource type="FontFile" uid="uid://d1xv1mwcsixam" path="res://fonts/Anak Gedong.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://ct0tp8wvu1uqa" path="res://scripts/main_menu.gd" id="1_ekxnf"]
