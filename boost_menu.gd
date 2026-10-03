@@ -16,10 +16,10 @@ const boosts = {
 		"cost" :3.0,
 		"card": preload("res://assets/ui/powerup-featherfalling.png")
 	},
-	#"double_jump":{
-	#	"cost" = 6.0,
-	#	"card" = preload("res://assets/ui/springpixart.webp")
-	#},
+	"double_jump":{
+		"cost" = 6.0,
+		"card" = preload("res://assets/ui/powerup-jump.png")
+	},
 	"dash":{
 		"cost" = 5.0,
 		"card" =preload("res://assets/ui/powerup-dash.png")

@@ -24,6 +24,13 @@ var SPEED_MULTIPLIER := 1.0
 var JUMP_MULTIPLIER := 1.0
 var has_shield := false
 var shield_active := false
+var can_double_jump := false
+var can_dash := false
+var can_glide := false
+var air_jumps := 0
+var dash_ready := false
+var dash_timer :=0.0
+var facing := 1.0
 var speed_multiplier: float:
 	get:
 		return SPEED_MULTIPLIER
@@ -54,6 +61,9 @@ func _physics_process(delta: float) -> void:
 		COYOTE_TIMER -= delta
 	else:
 		COYOTE_TIMER = COYOTE_TIME
+		air_jumps = 1 if can_double_jump else 0
+		if can_dash:
+			dash_ready = true
 
 	if Input.is_action_just_pressed("jump"):
 		JUMP_BUFFER_TIMER = JUMP_BUFFER_TIME
@@ -74,9 +84,24 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.scale = Vector2(0.75, 1.3)
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = max(velocity.y * CUT_MULTIPLIER, MIN_JUMP_HEIGHT)
-
+	if Input.is_action_just_pressed("jump") and not is_on_floor() and air_jumps>0 and COYOTE_TIMER<=0.0:
+		air_jumps -=1
+		velocity.y = -750.0*JUMP_MULTIPLIER
+		jump_sound.play()
+		
+	if can_glide and not is_on_floor() and velocity.y > 0.0 and Input.is_action_pressed("jump"):
+		velocity.y = minf(velocity.y, 140.0)
+	
+		
 	var direction := Input.get_axis("left", "right")
-
+	if direction!=0.0:
+		facing = signf(direction)
+	if can_dash and dash_ready and (Input.is_key_pressed(KEY_SHIFT)) :
+		dash_ready = false
+		dash_timer = 0.16
+	if dash_timer >0.0:
+		dash_timer -=delta
+		velocity = Vector2(facing*950.0, 0.0)
 	if direction != 0.0:
 		if absf(velocity.x) < BASE_SPEED:
 			velocity.x = direction * BASE_SPEED
@@ -120,7 +145,18 @@ func _check_enemy_collision() -> void:
 		if collider.is_in_group("enemies"):
 			die()
 			return
-
+func apply_upgrade(id:String) -> void: 
+	match id:
+		"speed":speed_multiplier=1.25
+		"jump":jump_multiplier=1.3
+		"shield":grant_shield()
+		"glide": can_glide = true
+		"double_jump":
+			can_double_jump = true
+			air_jumps = 1
+		"dash":
+			can_dash = true
+			dash_ready = true
 func _check_object_collision() -> void:
 	var overlapping = goal_detector.get_overlapping_areas()
 	for area in overlapping:
