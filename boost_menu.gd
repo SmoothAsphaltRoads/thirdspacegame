@@ -14,15 +14,15 @@ const boosts = {
 	},
 	"glide":{
 		"cost" :3.0,
-		"card": preload("res://assets/ui/featherpixart.jpg")
+		"card": preload("res://assets/ui/powerup-featherfalling.png")
 	},
-	"double_jump":{
-		"cost" = 6.0,
-		"card" = preload("res://assets/ui/springpixart.webp")
-	},
+	#"double_jump":{
+	#	"cost" = 6.0,
+	#	"card" = preload("res://assets/ui/springpixart.webp")
+	#},
 	"dash":{
 		"cost" = 5.0,
-		"card" =preload("res://assets/ui/dashpixart.jpg")
+		"card" =preload("res://assets/ui/powerup-dash.png")
 	}
 }
 @onready var cards = [$Cards/Card1,$Cards/Card2,$Cards/Card3]
