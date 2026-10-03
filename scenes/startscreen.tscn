@@ -3,41 +3,7 @@
 [ext_resource type="Script" uid="uid://dop6p8x2byirn" path="res://scripts/startmenu.gd" id="1_g1ylw"]
 [ext_resource type="Texture2D" uid="uid://c2q78djs51c7i" path="res://assets/background/Green.png" id="1_qx56x"]
 [ext_resource type="TileSet" uid="uid://ccnk880u5c08d" path="res://terrain_tileset.tres" id="2_m1yxm"]
-[ext_resource type="Texture2D" uid="uid://dvgo8xfhby84j" path="res://assets/ui/button-large-hover.png" id="3_4ge0g"]
-[ext_resource type="Texture2D" uid="uid://kam6w0x2y570" path="res://assets/ui/button-large-normal.png" id="4_g1ylw"]
-[ext_resource type="Texture2D" uid="uid://bep414meogv4b" path="res://assets/ui/button-large-pressed.png" id="5_6ta5r"]
-[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="6_6g0no"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_co5cm"]
-texture = ExtResource("4_g1ylw")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tdti"]
-bg_color = Color(0.77254903, 0.5882353, 0.85490197, 1)
-draw_center = false
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4n8ej"]
-texture = ExtResource("3_4ge0g")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udrup"]
-texture = ExtResource("5_6ta5r")
-
-[sub_resource type="Theme" id="Theme_0o2x3"]
-default_font = ExtResource("6_6g0no")
-default_font_size = 24
-Button/styles/disabled = SubResource("StyleBoxTexture_co5cm")
-Button/styles/focus = SubResource("StyleBoxFlat_2tdti")
-Button/styles/hover = SubResource("StyleBoxTexture_4n8ej")
-Button/styles/normal = SubResource("StyleBoxTexture_co5cm")
-Button/styles/pressed = SubResource("StyleBoxTexture_udrup")
+[ext_resource type="Theme" uid="uid://bm42l5ap5x8nn" path="res://uiTheme.tres" id="4_q30ww"]
 
 [node name="Startscreen" type="Node2D" unique_id=2114659229]
 script = ExtResource("1_g1ylw")
@@ -60,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_0o2x3")
+theme = ExtResource("4_q30ww")
 
 [node name="Content" type="MarginContainer" parent="UI/Menu" unique_id=1305129463]
 layout_mode = 1

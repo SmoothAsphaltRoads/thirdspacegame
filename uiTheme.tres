@@ -1,0 +1,37 @@
+[gd_resource type="Theme" format=3 uid="uid://bm42l5ap5x8nn"]
+
+[ext_resource type="Texture2D" uid="uid://kam6w0x2y570" path="res://assets/ui/button-large-normal.png" id="1_earos"]
+[ext_resource type="Texture2D" uid="uid://dvgo8xfhby84j" path="res://assets/ui/button-large-hover.png" id="2_f6hi4"]
+[ext_resource type="Texture2D" uid="uid://bep414meogv4b" path="res://assets/ui/button-large-pressed.png" id="3_n7uyn"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="4_hqmem"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_co5cm"]
+texture = ExtResource("1_earos")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tdti"]
+bg_color = Color(0.77254903, 0.5882353, 0.85490197, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4n8ej"]
+texture = ExtResource("2_f6hi4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udrup"]
+texture = ExtResource("3_n7uyn")
+
+[resource]
+default_font = ExtResource("4_hqmem")
+default_font_size = 24
+Button/styles/disabled = SubResource("StyleBoxTexture_co5cm")
+Button/styles/focus = SubResource("StyleBoxFlat_2tdti")
+Button/styles/hover = SubResource("StyleBoxTexture_4n8ej")
+Button/styles/normal = SubResource("StyleBoxTexture_co5cm")
+Button/styles/pressed = SubResource("StyleBoxTexture_udrup")

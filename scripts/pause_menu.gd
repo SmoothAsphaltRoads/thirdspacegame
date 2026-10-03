@@ -22,8 +22,7 @@ func _input(event:InputEvent) ->void :
 			visible = true
 			get_tree().paused = true
 
-
-func _on_quit_pressed() -> void:
+func _on_quit_pressed() -> void:     
 	LevelManager.stop_music()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/startscreen.tscn")
@@ -32,3 +31,7 @@ func _on_quit_pressed() -> void:
 func _on_options_pressed() -> void:
 	options.visible = true
 	
+
+func _on_levels_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/level_select.tscn")

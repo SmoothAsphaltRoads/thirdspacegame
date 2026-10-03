@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d103nds8ns3kb" path="res://scripts/pause_menu.gd" id="1_myx47"]
 [ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="2_kukqi"]
+[ext_resource type="Theme" uid="uid://bm42l5ap5x8nn" path="res://uiTheme.tres" id="2_v4r4p"]
 [ext_resource type="Script" uid="uid://i1kd2d8chp7o" path="res://scripts/audio_control.gd" id="3_7l7mv"]
 [ext_resource type="Script" uid="uid://cg7ac4fq6kya8" path="res://scripts/fullscreen_control.gd" id="4_v4r4p"]
 [ext_resource type="Script" uid="uid://culj1aetisa4h" path="res://scripts/scale_control.gd" id="5_1s2dm"]
@@ -39,26 +40,39 @@ offset_bottom = 25.333313
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.2, 2.2)
+theme = ExtResource("2_v4r4p")
+theme_override_constants/separation = 14
 
 [node name="Resume" type="Button" parent="PauseButtons" unique_id=1104604613]
 texture_filter = 2
+custom_minimum_size = Vector2(350, 48)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_kukqi")
-theme_override_font_sizes/font_size = 48
 text = "Resume"
+
+[node name="Levels" type="Button" parent="PauseButtons" unique_id=548544828]
+texture_filter = 2
+custom_minimum_size = Vector2(350, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_kukqi")
+text = "Levels"
 
 [node name="Quit" type="Button" parent="PauseButtons" unique_id=72770718]
 texture_filter = 2
+custom_minimum_size = Vector2(350, 48)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_kukqi")
-theme_override_font_sizes/font_size = 48
 text = "Quit"
 
 [node name="Options" type="Button" parent="PauseButtons" unique_id=1626527690]
 texture_filter = 2
+custom_minimum_size = Vector2(350, 48)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_kukqi")
-theme_override_font_sizes/font_size = 48
 text = "Options"
 
 [node name="Options" type="Panel" parent="PauseButtons/Options" unique_id=512545416]
@@ -162,6 +176,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="PauseButtons/Resume" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PauseButtons/Levels" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="PauseButtons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PauseButtons/Options" to="." method="_on_options_pressed"]
 [connection signal="value_changed" from="PauseButtons/Options/Options/AudioControl" to="PauseButtons/Options/Options/AudioControl" method="_on_value_changed"]
