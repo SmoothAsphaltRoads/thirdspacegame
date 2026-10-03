@@ -27,13 +27,13 @@ grow_horizontal = 2
 
 [node name="Title" type="Label" parent="header" unique_id=687594988]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.81960785, 0.4, 1)
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("2_dtwps")
-theme_override_font_sizes/font_size = 64
-text = "PICK A BOOST"
+theme_override_font_sizes/font_size = 48
+text = "pick a bost"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -41,7 +41,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5921569, 0.45882353, 0.6509804, 1)
 theme_override_fonts/font = ExtResource("2_dtwps")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 20
 text = "boosts can provide a advantage in the level, for a cost..."
 horizontal_alignment = 1
 
