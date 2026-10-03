@@ -7,6 +7,19 @@
 [ext_resource type="Script" uid="uid://cg7ac4fq6kya8" path="res://scripts/fullscreen_control.gd" id="4_v4r4p"]
 [ext_resource type="Script" uid="uid://culj1aetisa4h" path="res://scripts/scale_control.gd" id="5_1s2dm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4r4p"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 20.0
+content_margin_bottom = 24.0
+bg_color = Color(0.16470589, 0.101960786, 0.2, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7254902, 0.54509807, 0.8392157, 1)
+anti_aliasing = false
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s2dm"]
 bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
 
@@ -27,23 +40,38 @@ offset_right = 1917.0
 offset_bottom = 1082.0
 color = Color(0.011764706, 0.011764706, 0.011764706, 0.60784316)
 
-[node name="PauseButtons" type="VBoxContainer" parent="." unique_id=1115627463]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -388.0
-offset_top = -187.0
-offset_right = -50.5
-offset_bottom = 25.333313
+[node name="Center" type="CenterContainer" parent="." unique_id=1794738114]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.2, 2.2)
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=500724899]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v4r4p")
+
+[node name="Vbox" type="VBoxContainer" parent="Center/Panel" unique_id=1392866122]
+layout_mode = 2
+
+[node name="PausedLabel" type="Label" parent="Center/Panel/Vbox" unique_id=616425057]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.7254902, 0.54509807, 0.8392157, 1)
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 48
+text = "Paused"
+
+[node name="Control" type="Control" parent="Center/Panel/Vbox" unique_id=1256437562]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="PauseButtons" type="VBoxContainer" parent="Center/Panel/Vbox" unique_id=1115627463]
+layout_mode = 2
 theme = ExtResource("2_v4r4p")
 theme_override_constants/separation = 14
 
-[node name="Resume" type="Button" parent="PauseButtons" unique_id=1104604613]
+[node name="Resume" type="Button" parent="Center/Panel/Vbox/PauseButtons" unique_id=1104604613]
 texture_filter = 2
 custom_minimum_size = Vector2(350, 48)
 layout_mode = 2
@@ -51,7 +79,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_kukqi")
 text = "Resume"
 
-[node name="Levels" type="Button" parent="PauseButtons" unique_id=548544828]
+[node name="Levels" type="Button" parent="Center/Panel/Vbox/PauseButtons" unique_id=548544828]
 texture_filter = 2
 custom_minimum_size = Vector2(350, 48)
 layout_mode = 2
@@ -59,7 +87,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_kukqi")
 text = "Levels"
 
-[node name="Quit" type="Button" parent="PauseButtons" unique_id=72770718]
+[node name="Quit" type="Button" parent="Center/Panel/Vbox/PauseButtons" unique_id=72770718]
 texture_filter = 2
 custom_minimum_size = Vector2(350, 48)
 layout_mode = 2
@@ -67,7 +95,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_kukqi")
 text = "Quit"
 
-[node name="Options" type="Button" parent="PauseButtons" unique_id=1626527690]
+[node name="Options" type="Button" parent="Center/Panel/Vbox/PauseButtons" unique_id=1626527690]
 texture_filter = 2
 custom_minimum_size = Vector2(350, 48)
 layout_mode = 2
@@ -75,7 +103,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_kukqi")
 text = "Options"
 
-[node name="Options" type="Panel" parent="PauseButtons/Options" unique_id=512545416]
+[node name="OptionsPanel" type="Panel" parent="Center/Panel/Vbox/PauseButtons/Options" unique_id=512545416]
 visible = false
 texture_filter = 2
 layout_mode = 1
@@ -92,7 +120,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1s2dm")
 
-[node name="Label" type="Label" parent="PauseButtons/Options/Options" unique_id=705616632]
+[node name="Label" type="Label" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=705616632]
 layout_mode = 0
 offset_top = -2.0
 offset_right = 572.0
@@ -102,7 +130,7 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioControl" type="HSlider" parent="PauseButtons/Options/Options" unique_id=155379583]
+[node name="AudioControl" type="HSlider" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=155379583]
 layout_mode = 0
 offset_left = 85.0
 offset_top = 110.0
@@ -116,7 +144,7 @@ value = 1.0
 script = ExtResource("3_7l7mv")
 audio_bus_name = "Music"
 
-[node name="FullscreenControl" type="CheckButton" parent="PauseButtons/Options/Options" unique_id=1545940199]
+[node name="FullscreenControl" type="CheckButton" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=1545940199]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 131.0
@@ -128,7 +156,7 @@ text = "Fullscreen
 "
 script = ExtResource("4_v4r4p")
 
-[node name="ScaleControl" type="OptionButton" parent="PauseButtons/Options/Options" unique_id=1341323783]
+[node name="ScaleControl" type="OptionButton" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=1341323783]
 layout_mode = 0
 offset_left = 317.0
 offset_top = 201.0
@@ -155,7 +183,7 @@ popup/item_7/text = "25%"
 popup/item_7/id = 3
 script = ExtResource("5_1s2dm")
 
-[node name="Label2" type="Label" parent="PauseButtons/Options/Options" unique_id=1002462835]
+[node name="Label2" type="Label" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=1002462835]
 layout_mode = 0
 offset_left = 107.0
 offset_top = 202.0
@@ -164,7 +192,7 @@ offset_bottom = 255.0
 theme_override_font_sizes/font_size = 33
 text = "Resolution"
 
-[node name="Label3" type="Label" parent="PauseButtons/Options/Options" unique_id=220880672]
+[node name="Label3" type="Label" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=220880672]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 59.0
@@ -175,10 +203,10 @@ text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="PauseButtons/Resume" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="PauseButtons/Levels" to="." method="_on_levels_pressed"]
-[connection signal="pressed" from="PauseButtons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="PauseButtons/Options" to="." method="_on_options_pressed"]
-[connection signal="value_changed" from="PauseButtons/Options/Options/AudioControl" to="PauseButtons/Options/Options/AudioControl" method="_on_value_changed"]
-[connection signal="toggled" from="PauseButtons/Options/Options/FullscreenControl" to="PauseButtons/Options/Options/FullscreenControl" method="_on_toggled"]
-[connection signal="item_selected" from="PauseButtons/Options/Options/ScaleControl" to="PauseButtons/Options/Options/ScaleControl" method="_on_item_selected"]
+[connection signal="pressed" from="Center/Panel/Vbox/PauseButtons/Resume" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Center/Panel/Vbox/PauseButtons/Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="Center/Panel/Vbox/PauseButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Center/Panel/Vbox/PauseButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="value_changed" from="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/AudioControl" to="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/FullscreenControl" to="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/FullscreenControl" method="_on_toggled"]
+[connection signal="item_selected" from="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/ScaleControl" to="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/ScaleControl" method="_on_item_selected"]
