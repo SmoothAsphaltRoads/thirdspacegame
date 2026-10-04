@@ -67,6 +67,9 @@ rotation = 1.5707964
 [node name="Boost2" parent="." unique_id=565688971 instance=ExtResource("8_6nuwh")]
 position = Vector2(1521, 362)
 
+[node name="Boost4" parent="." unique_id=816069993 instance=ExtResource("8_6nuwh")]
+position = Vector2(872, 507)
+
 [node name="Spike3" parent="." unique_id=1027517052 instance=ExtResource("6_qpwj6")]
 position = Vector2(1161, 408)
 

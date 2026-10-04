@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://o2sg6mbvag8"]
+
+[ext_resource type="Script" uid="uid://i0iung83onk7" path="res://scripts/breakableTile.gd" id="1_l6ehb"]
+[ext_resource type="Texture2D" uid="uid://7e822ym6uigh" path="res://assets/tilemap/breakable_platform.png" id="1_uvoxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6eo5"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2x3"]
+size = Vector2(16, 18)
+
+[node name="BreakableTile" type="StaticBody2D" unique_id=1293684750]
+script = ExtResource("1_l6ehb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1540743557]
+texture = ExtResource("1_uvoxd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=163176960]
+shape = SubResource("RectangleShape2D_y6eo5")
+
+[node name="Detector" type="Area2D" parent="." unique_id=2018727812]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=2044255993]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_0o2x3")

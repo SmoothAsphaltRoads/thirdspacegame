@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://ccnk880u5c08d"]
 
 [ext_resource type="Texture2D" uid="uid://bjwke75li8xdh" path="res://assets/tilemap/terrain.png" id="1_yje5y"]
+[ext_resource type="PackedScene" uid="uid://o2sg6mbvag8" path="res://scenes/breakableTile.tscn" id="2_y1vhh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxy0u"]
 texture = ExtResource("1_yje5y")
@@ -293,6 +294,10 @@ texture = ExtResource("1_yje5y")
 20:10/0 = 0
 20:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_knwpu"]
+scenes/2/scene = ExtResource("2_y1vhh")
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qxy0u")
+sources/1 = SubResource("TileSetScenesCollectionSource_knwpu")
