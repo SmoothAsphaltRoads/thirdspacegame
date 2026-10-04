@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cc426y7y0ch3s"]
+
+[ext_resource type="Script" uid="uid://cwmuopfbfded1" path="res://lazer.gd" id="1_v6c0s"]
+[ext_resource type="Texture2D" uid="uid://cnqenga5cq2pr" path="res://assets/traps/laser/beam.png" id="2_ml6d7"]
+[ext_resource type="Texture2D" uid="uid://blr3mtj8gnv1o" path="res://assets/traps/laser/emitter.png" id="3_row12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gynv"]
+
+[node name="Lazer" type="Node2D" unique_id=195479251]
+script = ExtResource("1_v6c0s")
+
+[node name="Beam" type="Line2D" parent="." unique_id=522818304]
+texture = ExtResource("2_ml6d7")
+texture_mode = 1
+
+[node name="Emitter" type="Sprite2D" parent="." unique_id=1996736970]
+scale = Vector2(3, 3)
+texture = ExtResource("3_row12")
+hframes = 3
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=178625055]
+target_position = Vector2(2000, 0)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2131830485 groups=["trap"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1990997440]
+shape = SubResource("RectangleShape2D_6gynv")
