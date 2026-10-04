@@ -1,18 +1,7 @@
 [gd_scene format=3 uid="uid://bi0jtbc0mktpu"]
 
 [ext_resource type="Theme" uid="uid://bm42l5ap5x8nn" path="res://uiTheme.tres" id="1_y2dtm"]
-[ext_resource type="Texture2D" uid="uid://bo7kbvj682k8i" path="res://assets/ui/hud_panel.png" id="2_t3fs7"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3fs7"]
-texture = ExtResource("2_t3fs7")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 21.0
-expand_margin_left = 24.0
-expand_margin_top = 18.0
-expand_margin_right = 28.0
-expand_margin_bottom = 28.0
+[ext_resource type="StyleBox" uid="uid://ck33e4ufctgws" path="res://boxTheme.tres" id="2_t3fs7"]
 
 [node name="Indicator" type="CanvasLayer" unique_id=734338946]
 
@@ -26,7 +15,7 @@ grow_horizontal = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-24, 24)
 theme = ExtResource("1_y2dtm")
-theme_override_styles/panel = SubResource("StyleBoxTexture_t3fs7")
+theme_override_styles/panel = ExtResource("2_t3fs7")
 
 [node name="HBox" type="HBoxContainer" parent="Panel" unique_id=385339004]
 layout_mode = 2
