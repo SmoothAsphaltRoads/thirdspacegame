@@ -45,4 +45,4 @@ func _on_retry_pressed() -> void:
 func _on_levels_pressed() -> void:
 	get_tree().paused = false
 	queue_free()
-	LevelManager.change_scene("res://scenes/main_menu.tscn")
+	LevelManager.change_scene("res://scenes/startscreen.tscn")

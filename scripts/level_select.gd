@@ -211,7 +211,7 @@ func _on_node_5_pressed() -> void:
 	_select_spot(4)
 
 func _on_back_pressed() -> void:
-	LevelManager.change_scene("res://scenes/main_menu.tscn")
+	LevelManager.change_scene("res://scenes/startscreen.tscn")
 
 func _input(event: InputEvent) -> void:
 	if LevelManager.is_changing:

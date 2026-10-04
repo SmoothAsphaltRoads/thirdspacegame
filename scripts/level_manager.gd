@@ -14,7 +14,7 @@ var levels: Array[String] = [
 	"res://scenes/levels/level_11.tscn"
 ]
 var menus: Array[String] = [
-	"res://scenes/main_menu.tscn"
+	"res://scenes/startscreen.tscn"
 ]
 var total_time: Array[int] = [
 	10,
