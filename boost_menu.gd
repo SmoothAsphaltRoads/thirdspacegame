@@ -22,7 +22,7 @@ const boosts = {
 	},
 	"double_jump": {
 		"cost": 6.0,
-		"card": preload("res://assets/ui/powerup-jump.png")
+		"card": preload("res://assets/ui/powerup-doublejump.png")
 	},
 	"dash": {
 		"cost": 5.0,
