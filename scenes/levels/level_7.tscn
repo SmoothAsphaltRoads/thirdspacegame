@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="8_glw47"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="9_sjq8i"]
 [ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="11_ivh0c"]
+[ext_resource type="PackedScene" uid="uid://bi0jtbc0mktpu" path="res://scenes/indicator.tscn" id="11_wreli"]
+[ext_resource type="Script" uid="uid://dc1qsn5dlda6j" path="res://scripts/indicator.gd" id="12_wreli"]
 
 [node name="LevelRoot3" type="Node2D" unique_id=1702505771]
 script = ExtResource("1_sjq8i")
@@ -91,3 +93,6 @@ position = Vector2(1598, 985)
 
 [node name="Enemy" parent="." unique_id=389120182 instance=ExtResource("8_glw47")]
 position = Vector2(1080, 738)
+
+[node name="Indicator" parent="." unique_id=734338946 instance=ExtResource("11_wreli")]
+script = ExtResource("12_wreli")

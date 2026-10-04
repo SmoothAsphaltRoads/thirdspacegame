@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="7_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="9_sjq8i"]
 [ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="10_xsrpe"]
+[ext_resource type="PackedScene" uid="uid://bi0jtbc0mktpu" path="res://scenes/indicator.tscn" id="11_0kxia"]
 [ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="11_ivh0c"]
+[ext_resource type="Script" uid="uid://dc1qsn5dlda6j" path="res://scripts/indicator.gd" id="12_5umh1"]
 
 [node name="LevelRoot3" type="Node2D" unique_id=1702505771]
 script = ExtResource("1_sjq8i")
@@ -136,3 +138,6 @@ position = Vector2(424, 771)
 
 [node name="Boost2" parent="." unique_id=231876606 instance=ExtResource("10_xsrpe")]
 position = Vector2(987, 410)
+
+[node name="Indicator" parent="." unique_id=734338946 instance=ExtResource("11_0kxia")]
+script = ExtResource("12_5umh1")

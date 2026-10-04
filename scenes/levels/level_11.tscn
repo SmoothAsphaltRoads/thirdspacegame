@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cr8qdnj28ctpn"]
 
 [ext_resource type="Script" uid="uid://bpj3wvp5vdrm6" path="res://scripts/levels/level_11.gd" id="1_ntgks"]
-[ext_resource type="Texture2D" uid="uid://c0ercrcaythfq" path="res://assets/background/Brown.png" id="1_sewkk"]
+[ext_resource type="Texture2D" uid="uid://sjn57ned1c4y" path="res://assets/background/Brown.png" id="1_sewkk"]
 [ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="3_5bask"]
 [ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="4_gr7jt"]
 [ext_resource type="TileSet" uid="uid://ccnk880u5c08d" path="res://terrain_tileset.tres" id="5_4fty2"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cq5tgkwexdaa5" path="res://scenes/static_body_2d.tscn" id="9_bk8ll"]
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_4fty2"]
 [ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="11_1nnno"]
+[ext_resource type="PackedScene" uid="uid://bi0jtbc0mktpu" path="res://scenes/indicator.tscn" id="12_5tmw6"]
+[ext_resource type="Script" uid="uid://dc1qsn5dlda6j" path="res://scripts/indicator.gd" id="13_c8dgj"]
 
 [node name="LevelRoot" type="Node2D" unique_id=1076902885]
 script = ExtResource("1_ntgks")
@@ -96,3 +98,6 @@ of spikes!"
 [node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("10_4fty2")]
 
 [node name="BoostMenu" parent="." unique_id=151055942 instance=ExtResource("11_1nnno")]
+
+[node name="Indicator" parent="." unique_id=734338946 instance=ExtResource("12_5tmw6")]
+script = ExtResource("13_c8dgj")

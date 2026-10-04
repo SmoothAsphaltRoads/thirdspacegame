@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="9_3p04p"]
 [ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="10_nt80m"]
 [ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="11_nt80m"]
+[ext_resource type="PackedScene" uid="uid://bi0jtbc0mktpu" path="res://scenes/indicator.tscn" id="12_qi5uv"]
+[ext_resource type="Script" uid="uid://dc1qsn5dlda6j" path="res://scripts/indicator.gd" id="13_f6egh"]
 
 [node name="LevelRoot2" type="Node2D" unique_id=1702505771]
 script = ExtResource("1_8qukl")
@@ -68,3 +70,6 @@ position = Vector2(621, 982)
 
 [node name="endgoal3" parent="." unique_id=1685497066 instance=ExtResource("5_l37oo")]
 position = Vector2(1018, 972)
+
+[node name="Indicator" parent="." unique_id=734338946 instance=ExtResource("12_qi5uv")]
+script = ExtResource("13_f6egh")

@@ -84,6 +84,9 @@ func _choose(id: String, cost: float) -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player and player.has_method("apply_upgrade"):
 		player.apply_upgrade(id)
+	var indicator = get_tree().get_first_node_in_group("boost_indicator")
+	if indicator:
+		indicator.show_boost(id)
 	var timer = get_tree().get_first_node_in_group("level_timer")
 	if timer:
 		timer.reduce_time(cost)

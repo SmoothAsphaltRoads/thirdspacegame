@@ -24,6 +24,7 @@ func _on_pressed(b: Button) -> void:
 	if b.name == "Credits":
 		$UI/CreditsMenu.open()
 		return
+ 
 	if b.name == "Quit":
 		get_tree().quit()
 		return
