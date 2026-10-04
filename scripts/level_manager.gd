@@ -74,10 +74,6 @@ func go_to_next_level() -> void:
 	await Transition.cover()
 	get_tree().call_deferred("change_scene_to_file", levels[current_level])
 	await get_tree().process_frame
-	is_changing = true
-	await Transition.cover()
-	get_tree().call_deferred("change_scene_to_file", levels[current_level])
-	await get_tree().process_frame
 	await Transition.reveal()
 	is_changing = false
 

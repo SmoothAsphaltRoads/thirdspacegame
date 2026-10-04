@@ -32,6 +32,7 @@ var dash_ready := false
 var dash_timer :=0.0
 var facing := 1.0
 var shift_was_down := false
+var level_completed := false
 var speed_multiplier: float:
 	get:
 		return SPEED_MULTIPLIER
@@ -168,9 +169,12 @@ func apply_upgrade(id:String) -> void:
 			can_dash = true
 			dash_ready = true
 func _check_object_collision() -> void:
+	if level_completed:
+		return
 	var overlapping = goal_detector.get_overlapping_areas()
 	for area in overlapping:
 		if area.is_in_group("endGoal"):
+			level_completed = true
 			goal_reach_sound.play()
 			var timer := get_tree().current_scene.get_node("Timer")
 			var time = timer.time_elapse if timer else 0.0
