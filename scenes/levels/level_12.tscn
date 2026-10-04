@@ -1,0 +1,153 @@
+[gd_scene format=4 uid="uid://cp4h2d8vkb3oq"]
+
+[ext_resource type="Script" uid="uid://bpj3wvp5vdrm6" path="res://scripts/levels/level_11.gd" id="1_ntgks"]
+[ext_resource type="Texture2D" uid="uid://sjn57ned1c4y" path="res://assets/background/Brown.png" id="1_sewkk"]
+[ext_resource type="PackedScene" uid="uid://dl40kt56yu4v" path="res://scenes/spike.tscn" id="3_5bask"]
+[ext_resource type="PackedScene" uid="uid://ci6u08oar1e0s" path="res://scenes/boost.tscn" id="4_gr7jt"]
+[ext_resource type="TileSet" uid="uid://ccnk880u5c08d" path="res://terrain_tileset.tres" id="5_4fty2"]
+[ext_resource type="PackedScene" uid="uid://dpvyyggergrjk" path="res://scenes/player.tscn" id="5_bk8ll"]
+[ext_resource type="PackedScene" uid="uid://d0dcjjhj8lyla" path="res://scenes/timer.tscn" id="7_5bask"]
+[ext_resource type="PackedScene" uid="uid://danb2mi7ejawn" path="res://scenes/end_goal.tscn" id="8_gr7jt"]
+[ext_resource type="PackedScene" uid="uid://b2m8idh0x87o4" path="res://scenes/pause_menu.tscn" id="10_4fty2"]
+[ext_resource type="PackedScene" uid="uid://c6b3et2vxurl1" path="res://scenes/boost_menu.tscn" id="11_1nnno"]
+[ext_resource type="PackedScene" uid="uid://bi0jtbc0mktpu" path="res://scenes/indicator.tscn" id="12_5tmw6"]
+[ext_resource type="Script" uid="uid://dc1qsn5dlda6j" path="res://scripts/indicator.gd" id="13_c8dgj"]
+[ext_resource type="PackedScene" uid="uid://cc426y7y0ch3s" path="res://lazer.tscn" id="13_yf4k5"]
+[ext_resource type="PackedScene" uid="uid://dvdkgakd6fglg" path="res://scenes/enemy.tscn" id="14_yf4k5"]
+
+[node name="LevelRoot" type="Node2D" unique_id=1076902885]
+script = ExtResource("1_ntgks")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1399003457]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_sewkk")
+
+[node name="Boost" parent="." unique_id=1202985956 instance=ExtResource("4_gr7jt")]
+position = Vector2(235, 852)
+
+[node name="Player" parent="." unique_id=191484152 instance=ExtResource("5_bk8ll")]
+position = Vector2(90, 878)
+
+[node name="Boost2" parent="." unique_id=382454327 instance=ExtResource("4_gr7jt")]
+position = Vector2(610, 676)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=458027247]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAAAcAAAACAAkAAAAAAAYAAAACAAkAAAAAAAUAAAACAAkAAAAAAAQAAAACAAkAAAAAAAMAAAACAAkAAAAAAAIAAAACAAkAAAAAAAEAAAACAAkAAAAAAAAAAAABAAkAAAABAAAAAAABAAoAAAACAAAAAAABAAoAAAADAAAAAAABAAoAAAAEAAAAAAABAAoAAAAFAAAAAAABAAoAAAAGAAAAAAABAAoAAAAHAAAAAAABAAoAAAAIAAAAAAABAAoAAAAJAAAAAAABAAoAAAAKAAAAAAABAAoAAAALAAAAAAABAAoAAAAMAAAAAAABAAoAAAANAAAAAAABAAoAAAAOAAAAAAABAAoAAAAPAAAAAAABAAoAAAAQAAAAAAABAAoAAAARAAAAAAABAAoAAAASAAAAAAABAAoAAAATAAAAAAABAAoAAAAUAAAAAAABAAoAAAAVAAAAAAABAAoAAAAWAAAAAAABAAoAAAAXAAAAAAABAAoAAAAYAAAAAAABAAoAAAAZAAAAAAABAAoAAAAaAAAAAAABAAoAAAAAAAkAAAACAAkAAAAAAAoAAAACAAkAAAAAAAsAAAACAAkAAAAAAAwAAAACAAkAAAAAAA0AAAACAAkAAAAAAA4AAAACAAkAAAAbAAAAAAABAAoAAAAcAAAAAAABAAoAAAAdAAAAAAABAAoAAAAeAAAAAAABAAoAAAAfAAAAAAABAAoAAAAgAAAAAAABAAoAAAAhAAAAAAABAAoAAAAiAAAAAAABAAoAAAAjAAAAAAABAAoAAAAkAAAAAAABAAoAAAAlAAAAAAABAAoAAAAmAAAAAAABAAoAAAAnAAAAAAAAAAkAAAAnAAEAAAAAAAkAAAAnAAIAAAAAAAkAAAAnAAMAAAAAAAkAAAAnAAQAAAAAAAkAAAAnAAUAAAAAAAkAAAAnAAYAAAAAAAkAAAAnAAcAAAAAAAkAAAAnAAgAAAAAAAkAAAAnAAkAAAAAAAkAAAAnAAoAAAAAAAkAAAAnAAsAAAAAAAkAAAAnAAwAAAAAAAkAAAAnAA0AAAAAAAkAAAAnAA4AAAAAAAkAAAAnAA8AAAAAAAkAAAAnABAAAAAAAAkAAAAnABEAAAAAAAkAAAAnABIAAAAAAAkAAAAnABMAAAAAAAkAAAAnABQAAAAAAAgAAAAnABUAAAABAAkAAAAAABQAAAABAAgAAAAAABUAAAABAAkAAAABABQAAAABAAgAAAABABUAAAABAAkAAAACABQAAAABAAgAAAACABUAAAABAAkAAAADABQAAAABAAgAAAADABUAAAABAAkAAAAEABQAAAABAAgAAAAEABUAAAABAAkAAAAFABQAAAABAAgAAAAFABUAAAABAAkAAAAGABQAAAABAAgAAAAGABUAAAABAAkAAAAHABQAAAABAAgAAAAHABUAAAABAAkAAAAIABQAAAABAAgAAAAIABUAAAABAAkAAAAJABQAAAABAAgAAAAJABUAAAABAAkAAAAKABQAAAABAAgAAAAKABUAAAABAAkAAAALABQAAAABAAgAAAALABUAAAABAAkAAAAMABQAAAABAAgAAAAMABUAAAABAAkAAAANABQAAAABAAgAAAANABUAAAABAAkAAAAOABQAAAABAAgAAAAOABUAAAABAAkAAAAPABQAAAABAAgAAAAPABUAAAABAAkAAAAQABQAAAABAAgAAAAQABUAAAABAAkAAAARABQAAAABAAgAAAARABUAAAABAAkAAAASABQAAAABAAgAAAASABUAAAABAAkAAAATABQAAAABAAgAAAATABUAAAABAAkAAAAUABQAAAABAAgAAAAUABUAAAABAAkAAAAVABQAAAABAAgAAAAVABUAAAABAAkAAAAWABQAAAABAAgAAAAWABUAAAABAAkAAAAXABQAAAABAAgAAAAXABUAAAABAAkAAAAYABQAAAABAAgAAAAYABUAAAABAAkAAAAZABQAAAABAAgAAAAZABUAAAABAAkAAAAaABQAAAABAAgAAAAaABUAAAABAAkAAAAbABQAAAABAAgAAAAbABUAAAABAAkAAAAcABQAAAABAAgAAAAcABUAAAABAAkAAAAdABQAAAABAAgAAAAdABUAAAABAAkAAAAeABQAAAABAAgAAAAeABUAAAABAAkAAAAfABQAAAABAAgAAAAfABUAAAABAAkAAAAgABQAAAABAAgAAAAgABUAAAABAAkAAAAhABQAAAABAAgAAAAhABUAAAABAAkAAAAiABQAAAABAAgAAAAiABUAAAABAAkAAAAjABQAAAABAAgAAAAjABUAAAABAAkAAAAkABQAAAABAAgAAAAkABUAAAABAAkAAAAlABQAAAABAAgAAAAlABUAAAABAAkAAAAmABQAAAABAAgAAAAmABUAAAABAAkAAAAAAAgAAAACAAkAAAAAAA8AAAACAAkAAAAAABAAAAACAAkAAAAAABEAAAACAAkAAAAAABIAAAACAAkAAAAAABMAAAACAAkAAAAHABAAAQAAAAAAAgAIABAAAQAAAAAAAgAJABAAAQAAAAAAAgAKABAAAQAAAAAAAgAQAAwAAQAAAAAAAgARAAwAAQAAAAAAAgASAAwAAQAAAAAAAgATAAwAAQAAAAAAAgAWAAkAAQAAAAAAAgAXAAkAAQAAAAAAAgAYAAkAAQAAAAAAAgAZAAkAAQAAAAAAAgAcAAYAAQAAAAAAAgAdAAYAAQAAAAAAAgAeAAYAAQAAAAAAAgAhAAUAAQAAAAAAAgAiAAUAAQAAAAAAAgAOAAwAAQAAAAAAAgAPAAwAAQAAAAAAAgALABAAAQAAAAAAAgAMABAAAQAAAAAAAgAaAAkAAQAAAAAAAgAbAAkAAQAAAAAAAgA=")
+tile_set = ExtResource("5_4fty2")
+
+[node name="Timer" parent="." unique_id=1629730102 instance=ExtResource("7_5bask")]
+
+[node name="endgoal" parent="." unique_id=1795683256 instance=ExtResource("8_gr7jt")]
+position = Vector2(1632, 193)
+
+[node name="Spike5" parent="." unique_id=1975998442 instance=ExtResource("3_5bask")]
+position = Vector2(815, 938)
+
+[node name="Spike6" parent="." unique_id=161773442 instance=ExtResource("3_5bask")]
+position = Vector2(711, 938)
+
+[node name="Spike16" parent="." unique_id=1963105734 instance=ExtResource("3_5bask")]
+position = Vector2(919, 938)
+
+[node name="Spike17" parent="." unique_id=903333085 instance=ExtResource("3_5bask")]
+position = Vector2(971, 938)
+
+[node name="Spike19" parent="." unique_id=1232959414 instance=ExtResource("3_5bask")]
+position = Vector2(1023, 938)
+
+[node name="Spike18" parent="." unique_id=2118709068 instance=ExtResource("3_5bask")]
+position = Vector2(867, 938)
+
+[node name="Spike7" parent="." unique_id=1225878465 instance=ExtResource("3_5bask")]
+position = Vector2(763, 938)
+
+[node name="Spike8" parent="." unique_id=2075325298 instance=ExtResource("3_5bask")]
+position = Vector2(659, 938)
+
+[node name="Spike9" parent="." unique_id=1936203478 instance=ExtResource("3_5bask")]
+position = Vector2(607, 938)
+
+[node name="Spike10" parent="." unique_id=151150483 instance=ExtResource("3_5bask")]
+position = Vector2(555, 938)
+
+[node name="Spike11" parent="." unique_id=362110960 instance=ExtResource("3_5bask")]
+position = Vector2(503, 938)
+
+[node name="Spike12" parent="." unique_id=338179682 instance=ExtResource("3_5bask")]
+position = Vector2(451, 938)
+
+[node name="Spike13" parent="." unique_id=1097245202 instance=ExtResource("3_5bask")]
+position = Vector2(399, 938)
+
+[node name="Spike20" parent="." unique_id=1027517052 instance=ExtResource("3_5bask")]
+position = Vector2(1074, 935)
+
+[node name="Spike21" parent="." unique_id=1559812669 instance=ExtResource("3_5bask")]
+position = Vector2(1646, 935)
+
+[node name="Spike22" parent="." unique_id=805366554 instance=ExtResource("3_5bask")]
+position = Vector2(1542, 935)
+
+[node name="Spike23" parent="." unique_id=1735438905 instance=ExtResource("3_5bask")]
+position = Vector2(1750, 935)
+
+[node name="Spike24" parent="." unique_id=667827840 instance=ExtResource("3_5bask")]
+position = Vector2(1802, 935)
+
+[node name="Spike25" parent="." unique_id=1480205878 instance=ExtResource("3_5bask")]
+position = Vector2(1854, 935)
+
+[node name="Spike26" parent="." unique_id=860568744 instance=ExtResource("3_5bask")]
+position = Vector2(1698, 935)
+
+[node name="Spike27" parent="." unique_id=1147069086 instance=ExtResource("3_5bask")]
+position = Vector2(1594, 935)
+
+[node name="Spike28" parent="." unique_id=983478930 instance=ExtResource("3_5bask")]
+position = Vector2(1490, 935)
+
+[node name="Spike29" parent="." unique_id=2096826521 instance=ExtResource("3_5bask")]
+position = Vector2(1438, 935)
+
+[node name="Spike30" parent="." unique_id=1785045658 instance=ExtResource("3_5bask")]
+position = Vector2(1386, 935)
+
+[node name="Spike31" parent="." unique_id=637727297 instance=ExtResource("3_5bask")]
+position = Vector2(1334, 935)
+
+[node name="Spike32" parent="." unique_id=1097170134 instance=ExtResource("3_5bask")]
+position = Vector2(1282, 935)
+
+[node name="Spike33" parent="." unique_id=108965585 instance=ExtResource("3_5bask")]
+position = Vector2(1230, 935)
+
+[node name="Spike34" parent="." unique_id=713609263 instance=ExtResource("3_5bask")]
+position = Vector2(1178, 935)
+
+[node name="Spike35" parent="." unique_id=508281744 instance=ExtResource("3_5bask")]
+position = Vector2(1126, 935)
+
+[node name="PauseMenu" parent="." unique_id=34280368 instance=ExtResource("10_4fty2")]
+visible = false
+
+[node name="BoostMenu" parent="." unique_id=151055942 instance=ExtResource("11_1nnno")]
+
+[node name="Indicator" parent="." unique_id=734338946 instance=ExtResource("12_5tmw6")]
+script = ExtResource("13_c8dgj")
+
+[node name="Lazer" parent="." unique_id=195479251 instance=ExtResource("13_yf4k5")]
+position = Vector2(68, 722)
+
+[node name="Lazer2" parent="." unique_id=328416729 instance=ExtResource("13_yf4k5")]
+position = Vector2(855, 72)
+rotation = 1.5707964
+
+[node name="Lazer3" parent="." unique_id=2023229172 instance=ExtResource("13_yf4k5")]
+position = Vector2(1307, 68)
+rotation = 1.5707964
+
+[node name="Enemy" parent="." unique_id=389120182 instance=ExtResource("14_yf4k5")]
+position = Vector2(1595, 934)

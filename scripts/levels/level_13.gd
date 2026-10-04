@@ -4,7 +4,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start(20.0)
+	timer.start(30.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
