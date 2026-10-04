@@ -74,18 +74,10 @@ func go_to_next_level() -> void:
 	await Transition.cover()
 	get_tree().call_deferred("change_scene_to_file", levels[current_level])
 	await get_tree().process_frame
-	var stars = stars_calc(time_taken)
-	var level_idx = current_level - 1
-	if not level_stars.has(level_idx) or stars > level_stars[level_idx]:
-		level_stars[level_idx] = stars
-		star_save()
-	var stars_text = "⭐"
-	if stars == 3:
-		stars_text = "⭐⭐⭐"
-	elif stars == 2:
-		stars_text = "⭐⭐"
-		
-	await Showtime.show_text("Level %d\nTime: %.1fs  %s" % [current_level + 1, time_taken, stars_text], 1.8)
+	is_changing = true
+	await Transition.cover()
+	get_tree().call_deferred("change_scene_to_file", levels[current_level])
+	await get_tree().process_frame
 	await Transition.reveal()
 	is_changing = false
 
