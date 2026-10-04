@@ -5,6 +5,12 @@ extends CanvasLayer
 @onready var stars = [$Panel/VBox/Stars/s1/Icon, $Panel/VBox/Stars/s2/Icon2,$Panel/VBox/Stars/s3/Icon3]
 @onready var deathvalue: Label = $Panel/VBox/Card/VBoxContainer/Death/Value
 
+func _ready() -> void:
+	for b in $Panel/VBox/Buttons.get_children():
+		b.mouse_entered.connect(b.grab_focus)
+	await get_tree().process_frame
+	$Panel/VBox/Buttons/Next.grab_focus()
+
 func setup (idx: int, t:float) -> void:
 	tag.text = "Level %d" % (idx+1)
 	value.text = "%.2fs" % t
