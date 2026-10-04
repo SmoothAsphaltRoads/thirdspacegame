@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://deb5x8pwgriw0"]
+
+[ext_resource type="Theme" uid="uid://bm42l5ap5x8nn" path="res://uiTheme.tres" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://cb1gjnt232oar" path="res://scripts/credits.gd" id="2_2ckv8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bpdh"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 20.0
+content_margin_bottom = 24.0
+bg_color = Color(0.16470589, 0.101960786, 0.2, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7254902, 0.54509807, 0.8392157, 1)
+anti_aliasing = false
+
+[node name="Credits" type="Control" unique_id=252327645]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0bpdh")
+script = ExtResource("2_2ckv8")
+
+[node name="dim" type="ColorRect" parent="." unique_id=368849858]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49019608)
+
+[node name="center" type="CenterContainer" parent="." unique_id=2023676688]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="center" unique_id=109036846]
+custom_minimum_size = Vector2(720, 660)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0bpdh")
+
+[node name="VBox" type="VBoxContainer" parent="center/Panel" unique_id=663218475]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="center/Panel/VBox" unique_id=68437295]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7254902, 0.54509807, 0.8392157, 1)
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Entries" type="VBoxContainer" parent="center/Panel/VBox" unique_id=396744719]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Gap" type="Control" parent="center/Panel/VBox" unique_id=1706926344]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Thanks" type="Label" parent="center/Panel/VBox" unique_id=850144276]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.72156864, 0.627451, 1)
+text = "Thanks for playing"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="center/Panel/VBox" unique_id=869130609]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"

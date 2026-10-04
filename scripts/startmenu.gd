@@ -18,8 +18,12 @@ func _ready() -> void:
 
 	await get_tree().process_frame
 	buttons.get_child(0).grab_focus()
+	$UI/CreditsMenu.closed.connect(func(): %Buttons.get_node("Credits").grab_focus())
 
 func _on_pressed(b: Button) -> void:
+	if b.name == "Credits":
+		$UI/CreditsMenu.open()
+		return
 	if b.name == "Quit":
 		get_tree().quit()
 		return

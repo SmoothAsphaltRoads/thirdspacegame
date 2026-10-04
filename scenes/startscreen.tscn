@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dop6p8x2byirn" path="res://scripts/startmenu.gd" id="1_g1ylw"]
 [ext_resource type="Texture2D" uid="uid://c2q78djs51c7i" path="res://assets/background/Green.png" id="1_qx56x"]
 [ext_resource type="TileSet" uid="uid://ccnk880u5c08d" path="res://terrain_tileset.tres" id="2_m1yxm"]
+[ext_resource type="PackedScene" uid="uid://deb5x8pwgriw0" path="res://scenes/credits.tscn" id="4_7nbyq"]
 [ext_resource type="Theme" uid="uid://bm42l5ap5x8nn" path="res://uiTheme.tres" id="4_q30ww"]
 
 [node name="Startscreen" type="Node2D" unique_id=2114659229]
@@ -96,3 +97,6 @@ custom_minimum_size = Vector2(350, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Quit"
+
+[node name="CreditsMenu" parent="UI" unique_id=252327645 instance=ExtResource("4_7nbyq")]
+visible = false
