@@ -33,6 +33,8 @@ const boosts = {
 @onready var cards = [$Cards/Card1, $Cards/Card2, $Cards/Card3]
 @onready var start: Button = $Bottom/start
 
+
+
 var rest_y := {}
 
 func _ready() -> void:
@@ -68,7 +70,7 @@ func _make_outline() -> Panel:
 	p.add_theme_stylebox_override("panel", sb)
 	p.set_anchors_preset(Control.PRESET_FULL_RECT)
 	p.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	p.visible = false
+	p.visible = false    
 	return p
 
 func _card_hover(card: Control, on: bool) -> void:
