@@ -45,11 +45,9 @@ func _on_unfocus(b: Button) -> void:
 	b.remove_theme_stylebox_override("normal")
 
 func _on_button_pressed() -> void:   # Resume
-	LevelManager.stop_music()
 	close_menu()
 
 func _on_quit_pressed() -> void:
-	LevelManager.stop_music()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/startscreen.tscn")
 

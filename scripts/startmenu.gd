@@ -10,6 +10,7 @@ var targets := {
 
 @onready var buttons: VBoxContainer = %Buttons
 func _ready() -> void:
+	Music.play_menu()
 	for b: Button in buttons.get_children():
 		b.focus_entered.connect(_on_focus.bind(b))
 		b.focus_exited.connect(_on_unfocus.bind(b))

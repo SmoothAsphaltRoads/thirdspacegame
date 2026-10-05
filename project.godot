@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://cmf2thaqtwvda"
 LevelManager="*uid://c7vx3qes62jr6"
 Transition="*uid://bx2x5ighyhjsw"
 Showtime="*uid://cg438qio6xq7w"
+Music="*uid://n2o0g4054027"
 
 [display]
 

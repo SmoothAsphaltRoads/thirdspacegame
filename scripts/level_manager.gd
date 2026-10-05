@@ -17,6 +17,7 @@ var levels: Array[String] = [
 	"res://scenes/levels/level_14.tscn",
 	"res://scenes/levels/level_15.tscn"
 ]
+
 var menus: Array[String] = [
 	"res://scenes/startscreen.tscn"
 ]
@@ -44,7 +45,6 @@ var level_stars := {}
 var best_times := {}
 var level_deaths := 0
 const SAVE := "user://savegame.cfg"
-var music_player := AudioStreamPlayer.new()
 func stars_calc (time: float) -> int:
 	if time <= 5.0:
 		return 3
@@ -53,18 +53,27 @@ func stars_calc (time: float) -> int:
 	else:
 		return 1
 func start_game() -> void:
-	play_music()
 	change_scene(levels[0])
+	
+func _update_music(path: String) -> void:
+	var i := levels.find(path)
+	if i != -1:
+		Music.play_for_level(i + 1) 
+	elif path in menus:
+		Music.play_menu()
+
 func star_save () -> void:
 	var config := ConfigFile.new()
 	config.set_value("data", "stars", level_stars)
 	config.set_value("data", "best", best_times)
 	config.save(SAVE)
+
 func star_load () -> void:
 	var config := ConfigFile.new()
 	if config.load(SAVE) == OK:
 		level_stars = config.get_value("data", "stars", {})
 		best_times = config.get_value("data", "best", {})
+
 var current_level := 0
 func go_to_next_level() -> void:
 	if is_changing:
@@ -79,6 +88,7 @@ func go_to_next_level() -> void:
 	if is_changing:
 		return
 	is_changing = true
+	_update_music(levels[current_level])
 	await Transition.cover()
 	get_tree().call_deferred("change_scene_to_file", levels[current_level])
 	await get_tree().process_frame
@@ -88,7 +98,6 @@ func go_to_next_level() -> void:
 func load_level(index : int) -> void:
 	if is_changing:
 		return
-	play_music()
 	current_level = index % levels.size()
 	change_scene(levels[current_level])
 	
@@ -99,20 +108,15 @@ func change_scene(path: String) -> void:
 	if is_changing:
 		return
 	is_changing = true
+	_update_music(path)
 	await Transition.cover()
 	get_tree().call_deferred("change_scene_to_file", path)
 	await get_tree().process_frame
 	await Transition.reveal()
 	is_changing = false
-func play_music() -> void:
-	if not (music_player.playing):
-		music_player.play()
-func stop_music() -> void:
-	music_player.stop()
+
 func _ready() -> void:
 	star_load()
-	music_player.stream = preload("res://assets/sounds/music.ogg")
-	music_player.bus = &"Music"
-	add_child (music_player)
+
 func _process(delta: float) -> void:
 	pass

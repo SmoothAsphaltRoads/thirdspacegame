@@ -2,7 +2,6 @@
 
 [ext_resource type="FontFile" uid="uid://d1xv1mwcsixam" path="res://fonts/Anak Gedong.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://ct0tp8wvu1uqa" path="res://scripts/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="AudioStream" uid="uid://c0pngvlfjf604" path="res://assets/sounds/lofistartpage.mp3" id="3_bqqt6"]
 [ext_resource type="Script" uid="uid://i1kd2d8chp7o" path="res://scripts/audio_control.gd" id="4_wu84c"]
 [ext_resource type="Script" uid="uid://cg7ac4fq6kya8" path="res://scripts/fullscreen_control.gd" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://culj1aetisa4h" path="res://scripts/scale_control.gd" id="6_rtw2f"]
@@ -138,11 +137,6 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 80
 text = "Third Space"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2050145699]
-stream = ExtResource("3_bqqt6")
-autoplay = true
-bus = &"Music"
 
 [node name="Options" type="Panel" parent="." unique_id=742310115]
 visible = false
