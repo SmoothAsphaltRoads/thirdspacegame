@@ -33,15 +33,15 @@ const boosts = {
 @onready var cards = [$Cards/Card1, $Cards/Card2, $Cards/Card3]
 @onready var start: Button = $Bottom/start
 
-
-
 var rest_y := {}
+var _picked_ids: Array = []
 
 func _ready() -> void:
 	get_tree().paused = true
 	var keys = boosts.keys()
 	keys.shuffle()
 	var picked = keys.slice(0, 3)
+	_picked_ids = picked
 
 	for i in 3:
 		var id = picked[i]
@@ -54,9 +54,47 @@ func _ready() -> void:
 		card.focus_entered.connect(_card_hover.bind(card, true))
 		card.focus_exited.connect(_card_hover.bind(card, false))
 
+		var key_lbl := Label.new()
+		key_lbl.text = "[%d]" % (i + 1)
+		key_lbl.add_theme_font_override("font", preload("res://fonts/Minecraft.ttf"))
+		key_lbl.add_theme_font_size_override("font_size", 28)
+		key_lbl.add_theme_color_override("font_color", Color("f3dbc6"))
+		key_lbl.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+		key_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		key_lbl.offset_bottom = -16
+		card.add_child(key_lbl)
+
+	if start:
+		start.custom_minimum_size = Vector2(280, 60)
+		if start.text.is_empty():
+			start.text = "No boosts [4]"
+		start.add_theme_font_override("font", preload("res://fonts/Minecraft.ttf"))
+		start.add_theme_font_size_override("font_size", 32)
+		if not start.pressed.is_connected(_close):
+			start.pressed.connect(_close)
+		start.mouse_entered.connect(start.grab_focus)
+
 	await get_tree().process_frame
 	for card in cards:
 		rest_y[card] = card.position.y
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		match event.keycode:
+			KEY_1, KEY_KP_1:
+				_pick_index(0)
+			KEY_2, KEY_KP_2:
+				_pick_index(1)
+			KEY_3, KEY_KP_3:
+				_pick_index(2)
+			KEY_4, KEY_KP_4, KEY_SPACE:
+				_close()
+
+func _pick_index(idx: int) -> void:
+	if idx >= 0 and idx < _picked_ids.size():
+		var id: String = _picked_ids[idx]
+		var cost: float = boosts[id].cost
+		_choose(id, cost)
 
 func _make_outline() -> Panel:
 	var sb := StyleBoxFlat.new()
@@ -90,6 +128,9 @@ func _choose(id: String, cost: float) -> void:
 	var timer = get_tree().get_first_node_in_group("level_timer")
 	if timer:
 		timer.reduce_time(cost)
+	_close()
+
+func _on_start_pressed() -> void:
 	_close()
 
 func _close() -> void:

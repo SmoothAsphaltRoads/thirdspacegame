@@ -1,13 +1,11 @@
 extends Node
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
 @onready var main_buttons: VBoxContainer = $MainButtons
 @onready var start_button: Button = $MainButtons/Button
 @onready var options_button: Button = $MainButtons/Button2
 @onready var levels_button: Button = $MainButtons/Button3
-@onready var options: Panel = $Options
+@onready var options: Control = $Options
 
 func _ready() -> void:
 	start_button.pressed.connect(_on_start_pressed)

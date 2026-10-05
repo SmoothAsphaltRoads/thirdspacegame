@@ -20,16 +20,32 @@ border_width_bottom = 4
 border_color = Color(0.7254902, 0.54509807, 0.8392157, 1)
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s2dm"]
-bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_options"]
+content_margin_left = 40.0
+content_margin_top = 32.0
+content_margin_right = 40.0
+content_margin_bottom = 32.0
+bg_color = Color(0.12156863, 0.07450981, 0.16078432, 0.9607843)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7254902, 0.54509807, 0.8392157, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 16
+anti_aliasing = false
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ofnjo"]
-color = Color(1.1755697, 1.1755697, 1.1755697, 1)
-thickness = 6
+color = Color(0.7254902, 0.54509807, 0.8392157, 0.39215687)
+thickness = 8
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1rgno"]
-color = Color(0.34618732, 0.54770494, 1, 1)
-thickness = 6
+color = Color(0.7254902, 0.54509807, 0.8392157, 1)
+thickness = 8
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=34280368]
 process_mode = 3
@@ -103,39 +119,43 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_kukqi")
 text = "Options"
 
-[node name="OptionsPanel" type="Panel" parent="Center/Panel/Vbox/PauseButtons/Options" unique_id=512545416]
+[node name="OptionsPanel" type="PanelContainer" parent="Center" unique_id=512545416]
 visible = false
-texture_filter = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -285.0
-offset_top = -163.0
-offset_right = 285.0
-offset_bottom = 214.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1s2dm")
+layout_mode = 2
+theme = ExtResource("2_v4r4p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_options")
 
-[node name="Label" type="Label" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=705616632]
-layout_mode = 0
-offset_top = -2.0
-offset_right = 572.0
-offset_bottom = 51.0
-theme_override_font_sizes/font_size = 30
+[node name="VBox" type="VBoxContainer" parent="Center/OptionsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Title" type="Label" parent="Center/OptionsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 48
 text = "Options"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="AudioControl" type="HSlider" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=155379583]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 110.0
-offset_right = 493.0
-offset_bottom = 138.0
+[node name="Grid" type="GridContainer" parent="Center/OptionsPanel/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 22
+columns = 2
+
+[node name="VolumeLabel" type="Label" parent="Center/OptionsPanel/VBox/Grid"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 28
+text = "Volume"
+
+[node name="AudioControl" type="HSlider" parent="Center/OptionsPanel/VBox/Grid"]
+custom_minimum_size = Vector2(280, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 theme_override_styles/slider = SubResource("StyleBoxLine_ofnjo")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_1rgno")
 max_value = 1.0
@@ -144,25 +164,35 @@ value = 1.0
 script = ExtResource("3_7l7mv")
 audio_bus_name = "Music"
 
-[node name="FullscreenControl" type="CheckButton" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=1545940199]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 131.0
-offset_right = 481.0
-offset_bottom = 212.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 33
-text = "Fullscreen
-"
+[node name="FullscreenLabel" type="Label" parent="Center/OptionsPanel/VBox/Grid"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 28
+text = "Fullscreen"
+
+[node name="FullscreenControl" type="CheckButton" parent="Center/OptionsPanel/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 script = ExtResource("4_v4r4p")
 
-[node name="ScaleControl" type="OptionButton" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=1341323783]
-layout_mode = 0
-offset_left = 317.0
-offset_top = 201.0
-offset_right = 479.0
-offset_bottom = 258.0
-theme_override_font_sizes/font_size = 25
+[node name="ResolutionLabel" type="Label" parent="Center/OptionsPanel/VBox/Grid"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 28
+text = "Resolution"
+
+[node name="ScaleControl" type="OptionButton" parent="Center/OptionsPanel/VBox/Grid"]
+custom_minimum_size = Vector2(180, 44)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 22
 selected = 4
 item_count = 8
 popup/item_0/text = "200%"
@@ -183,30 +213,27 @@ popup/item_7/text = "25%"
 popup/item_7/id = 3
 script = ExtResource("5_1s2dm")
 
-[node name="Label2" type="Label" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=1002462835]
-layout_mode = 0
-offset_left = 107.0
-offset_top = 202.0
-offset_right = 300.0
-offset_bottom = 255.0
-theme_override_font_sizes/font_size = 33
-text = "Resolution"
+[node name="Spacer" type="Control" parent="Center/OptionsPanel/VBox"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
 
-[node name="Label3" type="Label" parent="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel" unique_id=220880672]
-layout_mode = 0
-offset_left = 98.0
-offset_top = 59.0
-offset_right = 478.0
-offset_bottom = 105.0
-theme_override_font_sizes/font_size = 33
-text = "Volume"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Buttons" type="HBoxContainer" parent="Center/OptionsPanel/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Center/OptionsPanel/VBox/Buttons"]
+custom_minimum_size = Vector2(240, 56)
+layout_mode = 2
+theme = ExtResource("2_v4r4p")
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 32
+text = "Back"
 
 [connection signal="pressed" from="Center/Panel/Vbox/PauseButtons/Resume" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Center/Panel/Vbox/PauseButtons/Levels" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="Center/Panel/Vbox/PauseButtons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Center/Panel/Vbox/PauseButtons/Options" to="." method="_on_options_pressed"]
-[connection signal="value_changed" from="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/AudioControl" to="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/AudioControl" method="_on_value_changed"]
-[connection signal="toggled" from="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/FullscreenControl" to="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/FullscreenControl" method="_on_toggled"]
-[connection signal="item_selected" from="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/ScaleControl" to="Center/Panel/Vbox/PauseButtons/Options/OptionsPanel/ScaleControl" method="_on_item_selected"]
+[connection signal="value_changed" from="Center/OptionsPanel/VBox/Grid/AudioControl" to="Center/OptionsPanel/VBox/Grid/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Center/OptionsPanel/VBox/Grid/FullscreenControl" to="Center/OptionsPanel/VBox/Grid/FullscreenControl" method="_on_toggled"]
+[connection signal="item_selected" from="Center/OptionsPanel/VBox/Grid/ScaleControl" to="Center/OptionsPanel/VBox/Grid/ScaleControl" method="_on_item_selected"]
+[connection signal="pressed" from="Center/OptionsPanel/VBox/Buttons/BackButton" to="." method="_on_options_back_pressed"]

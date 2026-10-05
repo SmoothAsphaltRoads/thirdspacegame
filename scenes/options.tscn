@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://ctmyte201r0a5"]
+
+[ext_resource type="Script" uid="uid://do2oq5ohloq58" path="res://scripts/options.gd" id="1_options"]
+[ext_resource type="Texture2D" uid="uid://c2q78djs51c7i" path="res://assets/background/Green.png" id="2_bg"]
+[ext_resource type="FontFile" uid="uid://cr7ox5sn0ip0a" path="res://fonts/Minecraft.ttf" id="3_font"]
+[ext_resource type="Theme" uid="uid://bm42l5ap5x8nn" path="res://uiTheme.tres" id="4_theme"]
+[ext_resource type="Script" uid="uid://i1kd2d8chp7o" path="res://scripts/audio_control.gd" id="5_audio"]
+[ext_resource type="Script" uid="uid://cg7ac4fq6kya8" path="res://scripts/fullscreen_control.gd" id="6_fullscreen"]
+[ext_resource type="Script" uid="uid://culj1aetisa4h" path="res://scripts/scale_control.gd" id="7_scale"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_options"]
+content_margin_left = 40.0
+content_margin_top = 32.0
+content_margin_right = 40.0
+content_margin_bottom = 32.0
+bg_color = Color(0.12156863, 0.07450981, 0.16078432, 0.9607843)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7254902, 0.54509807, 0.8392157, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 16
+anti_aliasing = false
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ofnjo"]
+color = Color(0.7254902, 0.54509807, 0.8392157, 0.39215687)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1rgno"]
+color = Color(0.7254902, 0.54509807, 0.8392157, 1)
+thickness = 8
+
+[node name="OptionsMenu" type="Control" unique_id=1005634962]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_theme")
+script = ExtResource("1_options")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=1120824227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+stretch_mode = 1
+
+[node name="Dim" type="ColorRect" parent="." unique_id=1915731725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08235294, 0.05098039, 0.11764706, 0.6509804)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=659671601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Center" unique_id=1560896621]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_options")
+
+[node name="VBox" type="VBoxContainer" parent="Center/PanelContainer" unique_id=334983526]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Title" type="Label" parent="Center/PanelContainer/VBox" unique_id=64145835]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 48
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="Center/PanelContainer/VBox" unique_id=126825161]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 22
+columns = 2
+
+[node name="VolumeLabel" type="Label" parent="Center/PanelContainer/VBox/Grid" unique_id=178806837]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+text = "Volume"
+
+[node name="AudioControl" type="HSlider" parent="Center/PanelContainer/VBox/Grid" unique_id=1950347517]
+custom_minimum_size = Vector2(280, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_ofnjo")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_1rgno")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_audio")
+audio_bus_name = "Music"
+
+[node name="FullscreenLabel" type="Label" parent="Center/PanelContainer/VBox/Grid" unique_id=827396206]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+text = "Fullscreen"
+
+[node name="FullscreenControl" type="CheckButton" parent="Center/PanelContainer/VBox/Grid" unique_id=124442498]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("6_fullscreen")
+
+[node name="ResolutionLabel" type="Label" parent="Center/PanelContainer/VBox/Grid" unique_id=1179745999]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.85882354, 0.7764706, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+text = "Resolution"
+
+[node name="ScaleControl" type="OptionButton" parent="Center/PanelContainer/VBox/Grid" unique_id=955339361]
+custom_minimum_size = Vector2(180, 44)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+selected = 4
+item_count = 8
+popup/item_0/text = "200%"
+popup/item_0/id = 7
+popup/item_1/text = "175%"
+popup/item_1/id = 6
+popup/item_2/text = "150%"
+popup/item_2/id = 5
+popup/item_3/text = "125%"
+popup/item_3/id = 4
+popup/item_4/text = "100%"
+popup/item_4/id = 0
+popup/item_5/text = "75%"
+popup/item_5/id = 1
+popup/item_6/text = "50%"
+popup/item_6/id = 2
+popup/item_7/text = "25%"
+popup/item_7/id = 3
+script = ExtResource("7_scale")
+
+[node name="Spacer" type="Control" parent="Center/PanelContainer/VBox" unique_id=1011425759]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Center/PanelContainer/VBox" unique_id=1283189039]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Center/PanelContainer/VBox/Buttons" unique_id=1034728570]
+custom_minimum_size = Vector2(240, 56)
+layout_mode = 2
+theme = ExtResource("4_theme")
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="value_changed" from="Center/PanelContainer/VBox/Grid/AudioControl" to="Center/PanelContainer/VBox/Grid/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Center/PanelContainer/VBox/Grid/FullscreenControl" to="Center/PanelContainer/VBox/Grid/FullscreenControl" method="_on_toggled"]
+[connection signal="item_selected" from="Center/PanelContainer/VBox/Grid/ScaleControl" to="Center/PanelContainer/VBox/Grid/ScaleControl" method="_on_item_selected"]
