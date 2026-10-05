@@ -2,10 +2,11 @@
 ## What is thirdspace?
 Third Space is a platformer which combines powerups from MMOs type games and implements them in a platformer!
 ## How are power ups implemented? 
-Currently, powerups are WIP however our vision is to make it cost some amount of your time in a level. ex- You buy a speed boost for 5s, so you have to complete the level in 5s lesser time. This causes a callenge and penalty for users using powerups.
+Currently, powerups cost some amount of your time in a level. ex- You buy a speed boost for 5s, so you have to complete the level in 5s lesser time. This causes a callenge and penalty for users using powerups.
+# ALL THE ART AND MUSIC IS CUSTOM MADE BY US
 # Features
 ## Currently Live:
-* Levels 1 through 10
+* Levels 1 through 15
 * Movement with resistance and physics
 * Fruits for checkpoints (They are a random fruit every time you enter !)
 * Enemy with player tracking
@@ -18,7 +19,6 @@ Currently, powerups are WIP however our vision is to make it cost some amount of
 * shield indicator on top of a player showing press [e] to activate and then when activated shows the duration left
 * a star mechanism which saves it in local storage so that it will be the same when u log back in
 * also: most of the art (including player, enemies, background art) is completely custom made by us!
-## WIP
 * Powerup mechnanics
 * Levels 12-20
 # Screenshots
@@ -26,3 +26,6 @@ Currently, powerups are WIP however our vision is to make it cost some amount of
 <img width="1843" height="1013" alt="2026-09-28-085048_hyprshot" src="https://github.com/user-attachments/assets/e33677b9-4c97-4473-84db-8c71591305b3" />
 <img width="1838" height="1012" alt="2026-09-28-085111_hyprshot" src="https://github.com/user-attachments/assets/8dfaecb8-a228-446d-bcdb-c8fadd8b2451" />
 <img width="1846" height="1014" alt="2026-09-28-085138_hyprshot" src="https://github.com/user-attachments/assets/efbeb28b-8280-4ded-b893-e25516ad4297" />
+<img width="1641" height="856" alt="image" src="https://github.com/user-attachments/assets/ffd27e9a-d96c-41fd-9754-ef282e329b06" />
+<img width="625" height="445" alt="image" src="https://github.com/user-attachments/assets/458ddede-2231-453b-863b-5c76e93581b6" />
+<img width="1718" height="945" alt="image" src="https://github.com/user-attachments/assets/535188e0-8405-4527-aa19-7a688c82cf61" />
